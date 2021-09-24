@@ -47,7 +47,7 @@ La instalación es bastante simple, siga los pasos a continuación en la Aplicac
 ```bash
 > pkg install git
 > git clone https://github.com/FG98F/fgv4
-> cd fgbotv4
+> cd fgv4
 > bash install.sh
 > npm start
 ```
