@@ -1,29 +1,25 @@
-## Deploy 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/holafg/dylux/)
 
 <p align="center">
 <a href="https://github.com/FG98F"><img title="FG98" src="https://img.shields.io/badge/github-FG98F-orange.svg?style=social&logo=github"></a>
 </p>
 
 <a href="https://github.com/FG98F/followers"><img title="Followers" src="https://img.shields.io/github/followers/FG98F?label=Followers&style=social"></a>
-<a href="https://github.com/FG98F/fgbotv3/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/FG98F/fgbotv3?&style=social"></a>
-<a href="https://github.com/FG98F/fgbotv3/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/fgbotv3?style=social"></a>
-<a href="https://github.com/FG98F/fgbotv3/watchers"><img title="Mirando" src="https://img.shields.io/github/watchers/FG98F/fgbotv3?label=Watching&style=social"></a>
-<a href="https://github.com/FG98F/fgbotv3/watchers"><img title="Contribuyente" src="https://img.shields.io/github/contributors/FG98F/fgbotv3?logo=github&style=social"></a>
+<a href="https://github.com/FG98F/botv4/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/FG98F/botv4?&style=social"></a>
+<a href="https://github.com/FG98F/botv4/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/botv4?style=social"></a>
+<a href="https://github.com/FG98F/botv4/watchers"><img title="Mirando" src="https://img.shields.io/github/watchers/FG98F/botv4?label=Watching&style=social"></a>
+<a href="https://github.com/FG98F/botv4/watchers"><img title="Contribuyente" src="https://img.shields.io/github/contributors/FG98F/botv4?logo=github&style=social"></a>
 </p>
 
 <p align="center">
-<a href="https://github.com/FG98F"><img title="Author" src="https://img.shields.io/badge/FG98-V3-orange?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/FG98F"><img title="Author" src="https://img.shields.io/badge/FG98-V4-orange?style=for-the-badge&logo=github"></a>
 </p>
 
 
 <p align="center">
-<a href="https://github.com/FG98F/fgbotv3"><img src="https://img.shields.io/github/repo-size/FG98F/fgbotv3?label=Peso%20repositorio&style=plastic"></a>
+<a href="https://github.com/FG98F/botv4"><img src="https://img.shields.io/github/repo-size/FG98F/botv4?label=Peso%20repositorio&style=plastic"></a>
 
 
 </p>
-
-**1 ¿Otras características ?, agréguese usted mismo**
 
 
 <details close="close">
@@ -50,8 +46,8 @@ La instalación es bastante simple, siga los pasos a continuación en la Aplicac
 
 ```bash
 > pkg install git
-> git clone https://github.com/FG98F/fgbotv3
-> cd fgbotv3
+> git clone https://github.com/FG98F/botv4
+> cd fgbotv4
 > bash install.sh
 > npm start
 ```
@@ -63,12 +59,12 @@ después de salir del código QR en termux, lo escanea usando el número de What
   <summary>CONTACTOS</summary>
 
 ### Información
-- Cambie número de dueño en [Settings](https://github.com/holafg/dylux/blob/main/settings.json#L3)
-- Puede cambiar la versión de baileys a la última editando el package.json [esta sección](https://github.com/holafg/dylux/blob/main/package.json#L23)
+- Cambie número de dueño en [Settings](https://github.com/FG98F/fgbotv4/blob/main/settings.json#L3)
+- Puede cambiar la versión de baileys a la última editando el package.json [esta sección](https://github.com/FG98F/fgbotv4/blob/main/package.json#L10)
 
 
 ### Prueba de Bot
-En caso de duda, antes de instalar fgbotv3, pruebe el bot aquí primero
+En caso de duda, antes de instalar fgbotv4, pruebe el bot aquí primero
 <p>
 <a href="https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK" target="blank"><img src="https://img.shields.io/badge/WhatsApp DyLux Bot-30302f?style=flat&logo=whatsapp" /></a>
 </p>
