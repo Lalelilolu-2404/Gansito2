@@ -4,10 +4,10 @@
 </p>
 
 <a href="https://github.com/FG98F/followers"><img title="Followers" src="https://img.shields.io/github/followers/FG98F?label=Followers&style=social"></a>
-<a href="https://github.com/FG98F/botv4/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/FG98F/botv4?&style=social"></a>
-<a href="https://github.com/FG98F/botv4/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/botv4?style=social"></a>
-<a href="https://github.com/FG98F/botv4/watchers"><img title="Mirando" src="https://img.shields.io/github/watchers/FG98F/botv4?label=Watching&style=social"></a>
-<a href="https://github.com/FG98F/botv4/watchers"><img title="Contribuyente" src="https://img.shields.io/github/contributors/FG98F/botv4?logo=github&style=social"></a>
+<a href="https://github.com/FG98F/fgv4/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/FG98F/fgv4?&style=social"></a>
+<a href="https://github.com/FG98F/fgv4/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/fgv4?style=social"></a>
+<a href="https://github.com/FG98F/fgv4/watchers"><img title="Mirando" src="https://img.shields.io/github/watchers/FG98F/fgv4?label=Watching&style=social"></a>
+<a href="https://github.com/FG98F/fgv4/watchers"><img title="Contribuyente" src="https://img.shields.io/github/contributors/FG98F/fgv4?logo=github&style=social"></a>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 
 <p align="center">
-<a href="https://github.com/FG98F/botv4"><img src="https://img.shields.io/github/repo-size/FG98F/botv4?label=Peso%20repositorio&style=plastic"></a>
+<a href="https://github.com/FG98F/fgv4"><img src="https://img.shields.io/github/repo-size/FG98F/fgv4?label=Peso%20repositorio&style=plastic"></a>
 
 
 </p>
@@ -46,7 +46,7 @@ La instalación es bastante simple, siga los pasos a continuación en la Aplicac
 
 ```bash
 > pkg install git
-> git clone https://github.com/FG98F/botv4
+> git clone https://github.com/FG98F/fgv4
 > cd fgbotv4
 > bash install.sh
 > npm start
