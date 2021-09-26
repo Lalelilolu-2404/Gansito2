@@ -13,7 +13,6 @@ exports.help = (prefix,pushname, autorfg) => {
 ▢ *${prefix}sticker2* _(Nombre|Autor)_
 ▢ *${prefix}take* _(Nombre|Autor)_
 ♔ *${prefix}exif* _(Nombre|Autor)_
-♔ *${prefix}stickfg* 
 ▢ *${prefix}jumbo*
 ▢ *${prefix}ttp*
 ▢ *${prefix}ttp2*
