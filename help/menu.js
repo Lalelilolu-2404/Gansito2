@@ -122,6 +122,7 @@ exports.help = (prefix,pushname, autorfg) => {
 ▢ *${prefix}delttc*
 ▢ *${prefix}mates*
 ▢ *${prefix}slot*
+▢ *${prefix}ppt*
 └──────────────
 
 ┌───⊷ *IMAGEN* ⊶

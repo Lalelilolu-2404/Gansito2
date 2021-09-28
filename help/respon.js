@@ -75,5 +75,22 @@ const lvlnul = () => {
 const fgnsfw = () => {
   return 'Lo siento pero no puedo ejecutar este comando, este grupo no permite contenido +18'
 }
+//----
 
-module.exports =  { wait, stick, errorfg, group, banf, ownerB, premi, userB, modsB, admin, Badmin, leveloff, lvlnul, fdiama, fgnsfw, gCoinF } 
+const dailyOn = (daily) => {
+    return `
+🎁 *RECOMPENSA DIARIA*
+
+▢ *Has recibido:*
+
+💰 *Coins* : *${daily}*
+🆙 *XP* : 10000`
+}
+
+const dailyR = () => {
+    return `Ya reclamaste tu recompensa diaria! vuelve mañana`
+}
+
+
+
+module.exports =  { wait, stick, errorfg, group, banf, ownerB, premi, userB, modsB, admin, Badmin, leveloff, lvlnul, fdiama, fgnsfw, gCoinF, dailyOn, dailyR} 
