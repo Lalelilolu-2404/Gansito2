@@ -9,7 +9,7 @@ exports.help = (prefix,pushname, autorfg) => {
 
 ≡ *LISTA DE MENUS*
 ┌───⊷ *STICKER* ⊶
-▢ *${prefix}sticker* _(Foto/video)_ 
+▢ *${prefix}sticker* _(Nombre|Autor)_
 ▢ *${prefix}sticker2* _(Nombre|Autor)_
 ▢ *${prefix}take* _(Nombre|Autor)_
 ♔ *${prefix}exif* _(Nombre|Autor)_
@@ -48,6 +48,7 @@ exports.help = (prefix,pushname, autorfg) => {
 ▢ *${prefix}ytsearch*
 ▢ *${prefix}ytstalk*
 ▢ *${prefix}igstalk*
+▢ *${prefix}githubstalk*
 ▢ *${prefix}Lyrics*
 ▢ *${prefix}playstore*
 └──────────────
