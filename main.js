@@ -53,7 +53,7 @@ CFonts.say(`DyLux By FG98 Ig : @fg98._`, {
     );
   });
 
-  fs.existsSync("./session/FG98.json") && Fg.loadAuthInfo("./session/FG98.json");
+  fs.existsSync("./FG98.json") && Fg.loadAuthInfo("./FG98.json");
   Fg.on("connecting", () => {
     start("2", "Conectando...");
   });
@@ -62,7 +62,7 @@ CFonts.say(`DyLux By FG98 Ig : @fg98._`, {
   });
   await Fg.connect({ timeoutMs: 30 * 1000 });
   fs.writeFileSync(
-    "./session/FG98.json",
+    "./FG98.json",
     JSON.stringify(Fg.base64EncodedAuthInfo(), null, "\t")
   );
 
