@@ -70,7 +70,6 @@ const { yta, ytv, igdl, upload, formatDate } = require("./libreria/ytdl");
 const { webp2mp4File } = require("./libreria/webp2mp4");
 const time = moment().tz("America/La_Paz").format("HH:mm:ss");
 const { sleep, isAfk, cekafk,  } = require("./libreria/offline");
-const { cmdadd } = require("./libreria/totalcmd.json");
 const { jadibot, stopjadibot, listjadibot } = require("./libreria/jadibot");
 const _prem = require("./libreria/premium");
 const game = require("./libreria/game");
@@ -95,6 +94,7 @@ const _scommand = JSON.parse(fs.readFileSync('./database/stickcmd.json'))
 const _welcom = JSON.parse(fs.readFileSync('./database/welcom.json'))
 const _left = JSON.parse(fs.readFileSync('./database/left.json'))	 
 const _user = JSON.parse(fs.readFileSync('./database/verify.json'))
+const totalhit = require("./libreria/totalcmd.json");
 
 //---new
 const _antilinkte = JSON.parse(fs.readFileSync('./database/antilinkte.json'));
