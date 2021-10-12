@@ -20,8 +20,8 @@ const moment = require("moment-timezone");
 
 blocked = [];
 
-require("./fg.js");
-nocache("./fg.js", (module) => console.log(`${module} Se actualizó!`));
+require('./fg.js')
+nocache('./fg.js', module => console.log(`${module} se actualizó! ✅`))
 
 const starts = async (Fg = new WAConnection()) => {
   Fg.logger.level = "warn";
