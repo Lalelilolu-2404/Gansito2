@@ -5598,24 +5598,20 @@ var parseWordArray = CryptoJS.enc.Base64.parse(`${texto}`);
 var parsedStr = parseWordArray.toString(CryptoJS.enc.Utf8);
 reply(`${parsedStr}`)
 break
-
-
-
 ///===============NSFW ========
 case 'nsfw':
 case '+18':
-    if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-					if (!isGroup) return reply(group())
-		           if (!isGroupAdmins && !isOwner) return reply(admin())
-
-					if (args.length < 1) return reply(`🔞 *+18*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
-if (Number(args[0]) === 'on') {
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
+if (!isGroupAdmins && !isOwner) return reply(admin())
+if (args.length < 1) return reply(`🔞 *+18*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
+if ((args[0]) === 'on') {
 if (isNsfw) return reply('✳️Ya está activado!')
 nsfw.push(from)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
 reply('✅  Contenido *+🔞* habilitado en el grupo')
-} else if (Number(args[0]) === 'off') {
+} else if ((args[0]) === 'off') {
 nsfw.splice(from, 1)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
 reply('✅  Contenido *+🔞* Deshabilitado en el grupo')
@@ -5624,13 +5620,9 @@ reply(`🔞 *CONTENIDO +18*\n\n*${prefix + command} on* para activar\n*${prefix 
 }
 break
 ///---------
-
-
-
-               case 'lb': 
+case 'lb': 
 case 'leaderboard':
 {
-
                 let top = '*──「 LEADERBOARD LEVEL 」──*\n\n'
                 let arrTop = []
                      var nom = 0
@@ -5669,12 +5661,8 @@ case 'leaderboard':
             }
                 break
 
-
-
 case 'okick':
-
-
-                if (mentioned.length !== 0){
+if (mentioned.length !== 0){
                     if (mentioned.includes(owner[0])) return reply(`Tidak bisa kick Owner`)
                     if (mentioned.includes(from.split("-")[0] + '@s.whatsapp.net')) return reply(`Tidak bisa kick owner group`)
                     Fg.groupRemove(from, mentioned)
@@ -5696,8 +5684,6 @@ case 'okick':
                     reply(`Kirim perintah ${prefix}kick @tag atau nomor atau reply pesan orang yang ingin di kick`)
                 }
                 break
-
-
 //--------------------------------------
       default:
 
