@@ -5573,7 +5573,7 @@ if(!isVerify) return isUser()
                     gameAdd(sender, glimit)
                     break
         
-        /----ENCODE Y DECODE---FG98
+//----ENCODE Y DECODE---FG98
 case 'code':
 case 'encode':
 if(!isVerify) return isUser()
