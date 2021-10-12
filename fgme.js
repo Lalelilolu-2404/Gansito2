@@ -68,7 +68,7 @@ const { color, bgcolor } = require("./libreria/color");
 const { fetchJson, getBase64, kyun, createExif } = require("./libreria/fetcher");
 const { yta, ytv, igdl, upload, formatDate } = require("./libreria/ytdl");
 const { webp2mp4File } = require("./libreria/webp2mp4");
-const time = moment().tz("America/La_Paz").format("HH:mm:ss");
+const time = moment().tz('Europe/Paris').format("HH:mm:ss");
 const { sleep, isAfk, cekafk,  } = require("./libreria/offline");
 const { jadibot, stopjadibot, listjadibot } = require("./libreria/jadibot");
 const _prem = require("./libreria/premium");
@@ -483,9 +483,9 @@ const gcount = isPremium ? gcounti.prem : gcounti.user
     const arg = chats.slice(command.length + 2, chats.length)
     const argss = body.split(/ +/g)
     //Y
-    const time = moment.tz('America/La_Paz').format('DD/MM HH:mm:ss')
-    const hora = moment.tz('America/La_Paz').format('HH:mm')
-    const hora2 = moment.tz('America/La_Paz').format('HH:mm:ss')
+    const time = moment.tz('Europe/Paris').format('DD/MM HH:mm:ss')
+    const hora = moment.tz('Europe/Paris').format('HH:mm')
+    const hora2 = moment.tz('Europe/Paris').format('HH:mm:ss')
     let d = new Date();
     let locale = "id";
     let gmt = new Date(0).getTime() - new Date("1 January 1970").getTime();
@@ -505,7 +505,7 @@ const gcount = isPremium ? gcounti.prem : gcounti.user
     });
 
     //----saludos
-    const time2 = moment().tz("America/La_Paz").format("HH:mm:ss");
+    const time2 = moment().tz('Europe/Paris').format("HH:mm:ss");
     if (time2 < "24:59:00") {
       var ucapanWaktu = "Buenas noches";
     }
@@ -680,7 +680,7 @@ return Math.floor(angka)
 
 			 //----------𝗘𝗠𝗢𝗝𝗜 𝗔 𝗦𝗧𝗜𝗖𝗞𝗘𝗥------------
     const sendStickerFromUrl = async(to, url) => {
-			console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
+			console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
 				var names = getRandom('.webp')
 				var namea = getRandom('.png')
 				var download = function (uri, filename, callback) {
@@ -696,7 +696,7 @@ return Math.floor(angka)
 					exec(`webpmux -set exif ./sticker/data.exif ${asw} -o ${asw}`, async (error) => {
 					let media = fs.readFileSync(asw)
 					Fg.sendMessage(to, media, sticker,{quoted:mek})
-					console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('💎 Enviando sticker...'))
+					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('💎 Enviando sticker...'))
 					fs.unlinkSync(asw)
 					fs.unlinkSync(filess)
 					});
@@ -737,7 +737,7 @@ return Math.floor(angka)
 
   //-------  Ttp2 ttp3 y demás de Stickers
 const sendStickerUrl = async(to, url) => {
-console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
+console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
 var names = getRandom('.webp')
 var namea = getRandom('.png')
 var download = function (uri, filename, callback) {
@@ -753,7 +753,7 @@ exec(`ffmpeg -i ${filess} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop
 exec(`webpmux -set exif ./sticker/data.exif ${asw} -o ${asw}`, async (error) => {
 let media = fs.readFileSync(asw)
 Fg.sendMessage(from, media, sticker, {quoted: mek})
-console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))  
+console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))  
 });
 });
 });
@@ -2256,7 +2256,7 @@ tagg = []
 teks = `▢ *Mensaje Leído por* :\n\n`
 for(let i of infom.reads){
 teks += '❏'+' ' + '@' + i.jid.split('@')[0] + '\n'
-teks += `⬡ ⌚ *Hora* : ` + moment(`${i.t}` * 1000).tz('America/La_Paz').format('HH:mm:ss') + '\n\n'
+teks += `⬡ ⌚ *Hora* : ` + moment(`${i.t}` * 1000).tz('Europe/Paris').format('HH:mm:ss') + '\n\n'
 tagg.push(i.jid)
 }
 mentions(teks, tagg, true)
@@ -2802,7 +2802,7 @@ break
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 					reply(wait())
-					console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
+					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
 					owgi = await  Fg.downloadAndSaveMediaMessage(ger)
 					anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 					teks = `${anu.display_url}`
@@ -2813,7 +2813,7 @@ break
 					fs.unlinkSync(ranp)
 					if (err) return reply(mess.error.stick)
 					Fg.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
-					console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))
+					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))
 					fs.unlinkSync(rano)
 					})
 					limitAdd(sender, limit)
@@ -2880,7 +2880,7 @@ break
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 					reply(wait())
-					console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
+					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
 					owgi = await  Fg.downloadAndSaveMediaMessage(ger)
 					anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 					teks = `${anu.display_url}`
@@ -2891,7 +2891,7 @@ break
 					fs.unlinkSync(ranp)
 					if (err) return reply(mess.error.stick)
 					Fg.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
-					console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))
+					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))
 					fs.unlinkSync(rano)
 					})
 					limitAdd(sender, limit)
@@ -2938,7 +2938,7 @@ limitAdd(sender, limit)
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 					reply(wait())
-					console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
+					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
 					owgi = await  Fg.downloadAndSaveMediaMessage(ger)
 					anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 					teks = `${anu.display_url}`
@@ -2949,7 +2949,7 @@ limitAdd(sender, limit)
 					fs.unlinkSync(ranp)
 					if (err) return reply(mess.error.stick)
 					Fg.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
-					console.log(color(time, 'magenta'), color(moment.tz('America/La_Paz').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))
+					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('📤 Enviando sticker...'))
 					fs.unlinkSync(rano)
 					})
 					limitAdd(sender, limit)
@@ -4417,7 +4417,7 @@ if (!isGroup) return reply(group())
 
 infogp = `┌──「 *INFO DE GRUPO* 」
 ▢ *🔖Nombre* : ${groupName}
-▢ *🪀Se creó el* : ${moment(`${groupMetadata.creation}` * 1000).tz('America/La_Paz').format('DD/MM/YYYY HH:mm:ss')}
+▢ *🪀Se creó el* : ${moment(`${groupMetadata.creation}` * 1000).tz('Europe/Paris').format('DD/MM/YYYY HH:mm:ss')}
 ▢ *👥Miembros* : ${groupMembers.length}
 ▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
 ▢ *📮Bienvenida* : ${Welcome_}
