@@ -5604,18 +5604,17 @@ break
 ///===============NSFW ========
 case 'nsfw':
 case '+18':
-    if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-					if (!isGroup) return reply(group())
-		           if (!isGroupAdmins && !isOwner) return reply(admin())
-
-					if (args.length < 1) return reply(`🔞 *+18*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
-if (Number(args[0]) === 'on') {
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
+if (!isGroupAdmins && !isOwner) return reply(admin())
+if (args.length < 1) return reply(`🔞 *+18*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
+if ((args[0]) === 'on') {
 if (isNsfw) return reply('✳️Ya está activado!')
 nsfw.push(from)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
 reply('✅  Contenido *+🔞* habilitado en el grupo')
-} else if (Number(args[0]) === 'off') {
+} else if ((args[0]) === 'off') {
 nsfw.splice(from, 1)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
 reply('✅  Contenido *+🔞* Deshabilitado en el grupo')
