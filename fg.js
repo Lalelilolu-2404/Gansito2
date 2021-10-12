@@ -4594,7 +4594,7 @@ if(!isVerify) return isUser()
 if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
 reply(wait())
 let yut = await yts(q)
-yta(yut.videos[0].url)
+yta(yut.all[0].url)
 .then(async(res) => {
 const { thumb, title, filesizeF, filesize } = res
 const capti = `
@@ -4630,7 +4630,7 @@ if(!isVerify) return isUser()
 try {
 reply(wait())
 let yut = await yts(q)
-yta(yut.videos[0].url)
+yta(yut.all[0].url)
 .then((res) => {
 const { dl_link, thumb, title, filesizeF, filesize } = res
 axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
@@ -4678,7 +4678,7 @@ if(!isVerify) return isUser()
 try {
 reply(wait())
 let yut = await yts(q)
-ytv(yut.videos[0].url)
+ytv(yut.all[0].url)
 .then((res) => {
 const { dl_link, thumb, title, filesizeF, filesize } = res
 axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
