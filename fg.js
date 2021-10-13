@@ -1157,7 +1157,6 @@ const linkwa = 'https://chat.whatsapp.com'
     const isQuotedAudio = type === "extendedTextMessage" && content.includes("audioMessage");
     const isQuotedSticker = type === "extendedTextMessage" && content.includes("stickerMessage");
     const isQuotedMessage = type === 'extendedTextMessage';
-    const isQuotedMsg = type === 'extendedTextMessage' && content.includes('Message');
     const isViewOnce = (type === 'viewOnceMessage');
 	  
 //ANTI VIEW ONCE MESSAGE!
