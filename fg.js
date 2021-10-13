@@ -5695,8 +5695,8 @@ case 'leaderboard':
 
 
 case 'okick':
-
-
+if(!isOwner) return reply(ownerB())
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                 if (mentioned.length !== 0){
                     if (mentioned.includes(owner[0])) return reply(`Tidak bisa kick Owner`)
                     if (mentioned.includes(from.split("-")[0] + '@s.whatsapp.net')) return reply(`Tidak bisa kick owner group`)
