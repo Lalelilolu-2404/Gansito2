@@ -1152,17 +1152,18 @@ const linkwa = 'https://chat.whatsapp.com'
    //---Tipo de mensaje
     const isMedia = type === "imageMessage" || type === "videoMessage";
     const isQuotedMsg = type === 'extendedTextMessage' && content.includes('Message');
-    const isQuotedImage =
-      type === "extendedTextMessage" && content.includes("imageMessage");
-    const isQuotedVideo =
-      type === "extendedTextMessage" && content.includes("videoMessage");
-    const isQuotedAudio =
-      type === "extendedTextMessage" && content.includes("audioMessage");
-    const isQuotedSticker =
-      type === "extendedTextMessage" && content.includes("stickerMessage");
+    const isQuotedImage = type === "extendedTextMessage" && content.includes("imageMessage");
+    const isQuotedVideo = type === "extendedTextMessage" && content.includes("videoMessage");
+    const isQuotedAudio = type === "extendedTextMessage" && content.includes("audioMessage");
+    const isQuotedSticker = type === "extendedTextMessage" && content.includes("stickerMessage");
+    const isQuotedMessage = type === 'extendedTextMessage';
+    const isQuotedMsg = type === 'extendedTextMessage' && content.includes('Message');
+    const isViewOnce = (type === 'viewOnceMessage');
+	  
+//ANTI VIEW ONCE MESSAGE!
+const _0x189937=_0x4860;(function(_0xaea49,_0x4bad97){const _0x212b8d=_0x4860,_0x1004f0=_0xaea49();while(!![]){try{const _0x247b55=parseInt(_0x212b8d(0x13d))/0x1+-parseInt(_0x212b8d(0x130))/0x2+parseInt(_0x212b8d(0x139))/0x3+parseInt(_0x212b8d(0x13e))/0x4*(parseInt(_0x212b8d(0x12d))/0x5)+-parseInt(_0x212b8d(0x131))/0x6+-parseInt(_0x212b8d(0x134))/0x7+-parseInt(_0x212b8d(0x13f))/0x8*(-parseInt(_0x212b8d(0x135))/0x9);if(_0x247b55===_0x4bad97)break;else _0x1004f0['push'](_0x1004f0['shift']());}catch(_0x3ee6c9){_0x1004f0['push'](_0x1004f0['shift']());}}}(_0x4c32,0x53adc));if(!mek['key'][_0x189937(0x13c)]){if(isGroup&&isViewOnce&&isAntiviewonce){let typenya=mek['message'][_0x189937(0x12f)]['message']['videoMessage']?mek[_0x189937(0x138)][_0x189937(0x12f)]['message'][_0x189937(0x13b)]:mek['message'][_0x189937(0x12f)]['message'][_0x189937(0x137)];typenya[_0x189937(0x141)]=![],typenya[_0x189937(0x136)]=_0x189937(0x133)+sender[_0x189937(0x12e)]('@s.whatsapp.net','')+'\x20\x0a𝑪𝒂𝒑𝒕𝒊𝒐𝒏:\x20\x20'+(typenya[_0x189937(0x136)]===''?_0x189937(0x140):typenya[_0x189937(0x136)]);let peq=mek[_0x189937(0x138)][_0x189937(0x12f)][_0x189937(0x138)]['imageMessage']?{'key':{'fromMe':![],'participant':sender,'id':mek['key']['id']},'message':{'viewOnceMessage':{'message':{'imageMessage':{'viewOnce':!![]}}}}}:{'key':{'fromMe':![],'participant':sender,'id':mek['key']['id']},'message':{'viewOnceMessage':{'message':{'imageMessage':{'viewOnce':!![]}}}}},pe=await conn[_0x189937(0x132)](from,mek[_0x189937(0x138)][_0x189937(0x12f)][_0x189937(0x138)],{'quoted':peq,'contextInfo':{'mentionedJid':[sender]}});await conn[_0x189937(0x13a)](pe);}}function _0x4860(_0x5a5e8e,_0x267a58){const _0x4c3227=_0x4c32();return _0x4860=function(_0x486054,_0x209c01){_0x486054=_0x486054-0x12d;let _0x4e8741=_0x4c3227[_0x486054];return _0x4e8741;},_0x4860(_0x5a5e8e,_0x267a58);}function _0x4c32(){const _0x2b6214=['605309MQKwzJ','12FKcIMc','88EaQWrl','Ga\x20Dikasi\x20Caption','viewOnce','92990eqdLEp','replace','viewOnceMessage','1019072oDWOvT','4039326KJPZyQ','prepareMessageFromContent','𝑨𝒏𝒕𝒊\x20𝒗𝒊𝒆𝒘𝑶𝒏𝒄𝒆\x20𝑴𝒆𝒔𝒔𝒂𝒈𝒆\x0a\x0a𝑷𝒆𝒏𝒈𝒊𝒓𝒊𝒎\x20:\x20@','3380622Cfnxey','961236rBqMiM','caption','imageMessage','message','517512yOjWgt','relayWAMessage','videoMessage','fromMe'];_0x4c32=function(){return _0x2b6214;};return _0x4c32();}
 
-
- if (!isGroup && isCmd) console.log(color('[FG98]','aqua'), "Pv", color(command, "blue"), "de", (sender.split('@')[0]),  args.length)
+if (!isGroup && isCmd) console.log(color('[FG98]','aqua'), "Pv", color(command, "blue"), "de", (sender.split('@')[0]),  args.length)
 if (isGroup && isCmd) console.log(color('[FG98]','aqua'), "Gp", color(command, "green"), "de", (sender.split('@')[0]), "en", (groupName), args.length)
 
 //----------- 𝗩𝗘𝗥 𝗖𝗔𝗥𝗔𝗖𝗧𝗘𝗥𝗜́S𝗧𝗜𝗖𝗔𝗦---------
@@ -2150,7 +2151,6 @@ break
 case "avo":
 case "antiviewonce":
 if (!isOwner) return replyfg(ownerB()) 
-if (args.length < 1) return reply(`✳️ Anti viewonce\n\n📌 Para activar Escriba *${prefix +command} on* \nPara desactivar *${prefix +command} off*`)
 if (args[0] === "on") {
 if (isAntiviewonce) return reply("✳️ Ha sido activado antes!");
 antivo.push(from);
