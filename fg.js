@@ -103,6 +103,7 @@ const nsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'))
 const _leveling = JSON.parse(fs.readFileSync('./database/leveling.json'))
 const _level = JSON.parse(fs.readFileSync('./database/nivel.json'))
 const awgp = JSON.parse(fs.readFileSync('./database/awgp.json'))
+const antivo = JSON.parse(fs.readFileSync("./database/antiviewonce.json"));
 //--economía
 const { isLimit, limitAdd, getLimit, giveLimit, addBalance, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require("./libreria/economy");
 
@@ -462,6 +463,7 @@ const isAntiDis = isGroup ? _antilinkdi.includes(from) : false
 const isNsfw = isGroup ? nsfw.includes(from) : false 
 const isLevelingOn = isGroup ? _leveling.includes(from) : false
 const isAw = isGroup ? awgp.includes(from) : false 
+const isAntiviewonce = isGroup ? antivo.includes(from) : false
 
     const conts = mek.key.fromMe
       ? Fg.user.jid
@@ -2135,15 +2137,38 @@ if (args.length < 1) return reply(`✳️ Anti mensajes eliminados\n\n📌 Para 
 if (args[0] === "on") {
 if(antidel)return reply('✳️ Ha sido activado antes!')
 antidel = true
-reply(`✅ Se actico Anti - Delete`)
+reply(`✅ Se activó Anti - Delete`)
 } else if (args[0] === "off") {
 if(!antidel)return reply('✳️ Ya ha sido desactivado antes!')
 antidel = false
-reply(`✅ Se desactivo Anti - Delete`)
+reply(`✅ Se desactivó Anti - Delete`)
 } else {
 reply(`✳️ Anti mensajes eliminados\n\n📌 Para activar Escriba *${prefix +command} on* \nPara desactivar *${prefix +command} off*`)
 }
 break
+ 
+case "avo":
+case "antiviewonce":
+if (!isOwner) return replyfg(ownerB()) 
+if (args.length < 1) return reply(`✳️ Anti viewonce\n\n📌 Para activar Escriba *${prefix +command} on* \nPara desactivar *${prefix +command} off*`)
+if (args[0] === "on") {
+if (isAntiviewonce) return reply("✳️ Ha sido activado antes!");
+antivo.push(from);
+fs.writeFileSync("./database/antiviewonce.json", JSON.stringify(antivo));
+reply(`✅ Se activó Anti - ViewOnce`)
+} else if (args[0] === "off") {
+let akuu = antivo.indexOf(from)
+if (!isAntiviewonce) return reply('✳️ Ya ha sido desactivado antes!')
+antivo.splice(akuu, 1)
+fs.writeFileSync("./database/antiviewonce.json", JSON.stringify(antivo));
+reply(`✅ Se desactivó Anti - ViewOnce`)
+} else if (!q) {
+sendButMessage(from, `MODE ANTIVIEWONCE`, `Silahkan pilih salah satu`, 
+	       [{buttonId: `${prefix}antiviewonce on`, buttonText: {displayText: `on`}, type: 1}, 
+		{buttonId: `${prefix}antiviewonce off`, buttonText: {displayText: `off`}, type: 1}]
+	      )
+}
+break	    
 
 case 'bc':
 case 'tx':
