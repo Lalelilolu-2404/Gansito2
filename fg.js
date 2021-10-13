@@ -2047,7 +2047,7 @@ case 'liststickcmd':
   if (isBanned) return reply(banf())
 let teksnyee = `「 *LISTA DE STICKER CMD* 」`
 let cemde = [];
-for (let i of scommand) {
+for (let i of _scommand) {
 cemde.push(i.id)
 teksnyee += `
 ❉─────────────────────❉ 
