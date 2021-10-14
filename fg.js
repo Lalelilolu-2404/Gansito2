@@ -1486,7 +1486,7 @@ if (!isNsfw) return reply(`*🔞NSFW*`)
 reply(wait())
 anu = await fetchJson(`https://waifu.pics/api/nsfw/trap`)
 buffer = await getBuffer(anu.url)
-cnf.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+Fg.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
 break
 //fin
 		    
@@ -1494,7 +1494,7 @@ case 'waifuxx':
 reply(wait())
 anu = (`https://bx-hunter.herokuapp.com/api/sfw/waifu?apikey=Ikyy69}`)
 img = await getBuffer(anu)
-Fg.sendMessage(from, img, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+Fg.sendMessage(from, img, image, { quoted: mek})
 break
 case 'lolixx':
 reply(wait())
@@ -2046,33 +2046,30 @@ limitAdd(sender, limit)
 break
 
 case '3d':
-				if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-				if (args.length < 1) return reply(`✳️ Ingrese el texto\n📌 Ejemplo : ${prefix + command} DyLux`)
-			    defg = q
-                data = await await getBuffer(`https://docs-jojo.herokuapp.com/api/text3d?text=${defg}`)
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ Ingrese el texto\n📌 Ejemplo : ${prefix + command} DyLux`)
+defg = q
+data = await await getBuffer(`https://docs-jojo.herokuapp.com/api/text3d?text=${defg}`)
+reply(wait())
+Fg.sendMessage(from, data, image, {quoted: mek, caption: `✅ Listo : *${defg}*`})
+limitAdd(sender, limit)
+break
+case 'fakedonald':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf()) 
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ Ejemplo : ${prefix + command} DyLux`)
+reply(wait())
+ini_txt = args.join(" ")
+ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/tweettrump?apikey=${lolkey}&text=${ini_txt}`)
+Fg.sendMessage(from, ini_buffer, image, { quoted: mek })
+limitAdd(sender, limit)
+break
 
-                	reply(wait())
-                Fg.sendMessage(from, data, image, {quoted: mek, caption: `✅ Listo : *${defg}*`})
-                limitAdd(sender, limit)
-                break
-                case 'fakedonald':
-        if(!isVerify) return isUser()
-  if (isBanned) return reply(banf()) 
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-
-                    if (args.length < 1) return reply(`✳️ Ejemplo : ${prefix + command} DyLux`)
-                    reply(wait())
-                    ini_txt = args.join(" ")
-                    ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/tweettrump?apikey=${lolkey}&text=${ini_txt}`)
-                    Fg.sendMessage(from, ini_buffer, image, { quoted: mek })
-                      limitAdd(sender, limit)
-                    break
-
-
-                  case 'halloween':
-	 if(!isVerify) return isUser()
+case 'halloween':
+if(!isVerify) return isUser()
   if (isBanned) return reply(banf())
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ Ingrese el texto\n\n📌 Ejemplo : *${prefix + command}* FG98`)
@@ -2081,25 +2078,25 @@ sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/halloween?te
   limitAdd(sender, limit)
  break
 
-   case 'vampire':
-   case 'vampiro':
-    if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+case 'vampire':
+case 'vampiro':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ Ingrese el texto\n\n📌 Ejemplo : *${prefix + command}* FG98`)
-  reply(wait())
- sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/vampire?text=${q}&apikey=${hunterkey}`)
- limitAdd(sender, limit)
-  break
-   case 'carbon': 
-    if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+reply(wait())
+sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/vampire?text=${q}&apikey=${hunterkey}`)
+limitAdd(sender, limit)
+break
+case 'carbon': 
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ Ingrese el texto\n\n📌 Ejemplo : *${prefix + command}* FG98`)
- reply(wait())
-  sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/maker/carbon?code=${q}&apikey=${hunterkey}`)
-  limitAdd(sender, limit)
- break
+reply(wait())
+sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/maker/carbon?code=${q}&apikey=${hunterkey}`)
+limitAdd(sender, limit)
+break
 case 'matrix':
 				 if(!isVerify) return isUser()
   if (isBanned) return reply(banf())
@@ -2448,11 +2445,11 @@ tagg.push(i.jid)
 mentions(teks, tagg, true)
 break
 
-       case 'getsider':
+case 'getsider':
 case 'noleidos':
 try {
-	if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 if (!isGroup) return reply(group()) 
 if (!isQuotedMsg) return reply('✳️ Responde a un mensaje mío')      
 infom = await Fg.messageInfo(from, mek.message.extendedTextMessage.contextInfo.stanzaId)
@@ -2516,37 +2513,36 @@ console.log(e)
 }
 break
 
-                  case 'hoy':
-                   case 'hora' :
-                   case 'fecha':
-                   if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
-                   const timx = moment.tz('America/Mexico_City').format('HH:mm:ss')
-                   const argt = moment.tz('America/Argentina/Salta').format('HH:mm:ss')
-                   tpf = `*${fecha()}*
+case 'hoy':
+case 'hora' :
+case 'fecha':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+const timx = moment.tz('America/Mexico_City').format('HH:mm:ss')
+const argt = moment.tz('America/Argentina/Salta').format('HH:mm:ss')
+tpf = `*${fecha()}*
 Hora : *${hora2}*
    ─────────────
 México : *${timx}*
 Argentina : *${argt}*
     ─────────────`     
-  reply(tpf)
-                   break          
+reply(tpf)
+break          
 
-                  //-----𝗘𝗗𝗨𝗖𝗔𝗖𝗜𝗢́𝗡 
-
+//-----𝗘𝗗𝗨𝗖𝗔𝗖𝗜𝗢́𝗡 
 case 'translate':
-		case 'tl':
-		case 'trad':
-		case 'traducir':
-		   if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-				   if (args.length < 1) return reply(`✳️ Ingrese el texto para traducir\n\n📌 Ejemplo : ${prefix + command} es Hi bro`)
-                    idioma = args[0]
-                    args.shift()
-                    textra = args.join(' ')
-				anu = await fetchJson(`https://bx-hunter.herokuapp.com/api/translate?lang=${idioma}&text=${textra}&apikey=${hunterkey}`, {method: 'get'})
-				teks = anu.text
+case 'tl':
+case 'trad':
+case 'traducir':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ Ingrese el texto para traducir\n\n📌 Ejemplo : ${prefix + command} es Hi bro`)
+idioma = args[0]
+args.shift()
+textra = args.join(' ')
+anu = await fetchJson(`https://bx-hunter.herokuapp.com/api/translate?lang=${idioma}&text=${textra}&apikey=${hunterkey}`, {method: 'get'})
+teks = anu.text
 reply(teks)
 limitAdd(sender, limit)
 break
@@ -2556,7 +2552,7 @@ case 'calculadora':
 case 'cal':
 case 'calcu':
 if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (args.length < 1) return reply(`✳️ Ingrese la ecuación\n\nsímbolos compatibles -, +, *, /, ×, ÷, π, e, (, )`)
 global.math = global.math ? global.math : {}
 let ed = from
@@ -2601,29 +2597,29 @@ throw 'Formato incorrecto, solo 0-9 y símbolo -, +, *, /, ×, ÷, π, e, (, ) s
 break
 
 case 'playstore':
-					if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
-                   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-            if(!q) return reply(`✳️ Ingrese nombre de la aplicación\n\n📌Ejemplo *${prefix + command}* WhatsApp`)
-            let play = await hx.playstore(q)
-            reply(wait()) 
-            let store = '\n「 *PLAY STORE* 」\n❉─────────────────────❉\n'
-            for (let i of play){
-            store += `
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if(!q) return reply(`✳️ Ingrese nombre de la aplicación\n\n📌Ejemplo *${prefix + command}* WhatsApp`)
+let play = await hx.playstore(q)
+reply(wait()) 
+let store = '\n「 *PLAY STORE* 」\n❉─────────────────────❉\n'
+for (let i of play){
+store += `
 *📌Nombre* : ${i.name}
 *🔗 Link* : ${i.link}\n
 *👨🏻‍💻 Dev* : ${i.developer}
 *🔗 Link Dev* : ${i.link_dev}
 ❉─────────────────────❉`
-            }
-            reply(store)
-            limitAdd(sender, limit)
-            break
+}
+reply(store)
+limitAdd(sender, limit)
+break
 
-      case 'google':
+case 'google':
 if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
-                   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ Que quieres buscar en Google?`)
 teks = args.join(' ')
 reply(wait())
@@ -2645,8 +2641,8 @@ break
 case 'wiki':
 case 'wikipedia':
 if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
-                   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ Ingrese el texto\n\n📌 Ejemplo *${prefix + command}* Lil Peep`)
 teks = args.join(' ')
 reswiki = await wikiSearch(teks).catch(e => {
@@ -2666,11 +2662,11 @@ break
 //----
 
 //---Acortar enlaces
-				case 'tinyurl':
-				 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-				if (args.length < 1) return reply(`✳️ Ingrese el link para acortar`)
+case 'tinyurl':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ Ingrese el link para acortar`)
 try {
 link = args[0]
 anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`)
@@ -2686,15 +2682,15 @@ case 'ssweb':
 case 'screenshot': 
 case 'captura': 
 case 'screen':
-               if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-                   if (args.length < 1) return reply(`✳️ Ejemplo :\n*${prefix + command} https://github.com/FG98F*`)                  
-                   reply(wait())
-                   anu = await getBuffer(`http://anu-team.herokuapp.com/api/ssweb?url=${q}`)
-                   Fg.sendMessage(from, anu, image, {caption: `✅ Screenshot de la página`, quoted: mek})
-                   limitAdd(sender, limit)
-                   break
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ Ejemplo :\n*${prefix + command} https://github.com/FG98F*`)                  
+reply(wait())
+anu = await getBuffer(`http://anu-team.herokuapp.com/api/ssweb?url=${q}`)
+Fg.sendMessage(from, anu, image, {caption: `✅ Screenshot de la página`, quoted: mek})
+limitAdd(sender, limit)
+break
 
 case 'tagme':
 if(!isVerify) return isUser()
@@ -2713,9 +2709,9 @@ mentions(`@${q.split("@")[0]}`, [`${q}@s.whatsapp.net`], false)
 break
 //-----
 
-      case 'kick':
- if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+case 'kick':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 if (!isGroup) return reply(group())
 if (!isGroupAdmins) return reply(admin())
 if(!q)return reply(`✳️ Menciona a alguien\n\n📌Ejemplo : ${prefix + command} @tag`)
@@ -2726,17 +2722,17 @@ reply(`✅ Ordenes recibidas, emitidas`)
 break
 
 
-      case "add":
-        if (!isOwner) return 
+case "add":
+if (!isOwner) return 
 if (!isGroup) return reply(group())
 if (!isGroupAdmins) return reply(admin())
 if (!isBotGroupAdmins) return reply(Badmin())
-        if (
-          mek.message.extendedTextMessage === null ||
-          mek.message.extendedTextMessage === undefined
-        )
-          return;
-        if (
+if (
+mek.message.extendedTextMessage === null ||
+mek.message.extendedTextMessage === undefined
+)
+return;
+if (
           mek.message.extendedTextMessage.contextInfo.participant === undefined
         ) {
           entah = mek.message.extendedTextMessage.contextInfo.mentionedJid;
@@ -2753,14 +2749,14 @@ if (!isBotGroupAdmins) return reply(Badmin())
           entah = mek.message.extendedTextMessage.contextInfo.participant;
           add(from, [entah]);
         }
-        break;
+break;
 
 
-      //--- abrir y cerrar grupo
+//--- abrir y cerrar grupo
 case 'gp':
-					case 'group':
-					 if(!isVerify) return isUser()
-                    if (isBanned) return reply(banf())
+case 'group':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 if (!isGroup) return reply(group())
 if (!isGroupAdmins && !isOwner) return reply(admin())
 if (!isBotGroupAdmins) return reply(Badmin())
@@ -2805,9 +2801,9 @@ break
 case 'resetlink': 
 case 'revokelink': 
 case 'anularlink':
-if (isAw) return reply('⚠️ Está prohibido anular el link de este grupo❗')
+if (!isAw) return reply('⚠️ Está prohibido anular el link de este grupo❗')
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (!isGroupAdmins && !isOwner) return reply(admin())
 if (!isBotGroupAdmins) return reply (Badmin())
 Fg.query({ json: ['action', 'inviteReset', from], expect200: true })
@@ -2822,7 +2818,7 @@ break
 case 'leave':
 case 'salir':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if(!isGroup)return reply(group())
 if(!isGroupAdmins && !isOwner)return reply(admin())
 sendMess(from,`😔 Adios  grupo *${groupName}*`)
@@ -5025,14 +5021,14 @@ case 'stikergif':
 case 'sticker': 
 case 'stickergif': 
 case 'sgif':  
-  if(!isVerify) return isUser()
-  if (isBanned) return reply(banf()) 
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf()) 
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 const encmedia1 = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 const dlfile1 = await Fg.downloadMediaMessage(encmedia1)
 
 const bas641 = `data:image/jpeg;base64,${dlfile1.toString('base64')}`
-var mantap1 = await convertSticker(bas641, `💎 @fg98._`, `🔮 DyLux ┃ ᴮᴼᵀ `)
+var mantap1 = await convertSticker(bas641, `💎⛧⸸⁶Death⁹†._`, `Gansito Revenge┃ᴮᴼᵀ `)
 var st = new Buffer.from(mantap1, 'base64');
 Fg.sendMessage(from, st, sticker, {contextInfo: {externalAdReply:{
 title:`${pushname}`,body:"",previewType:"PHOTO",thumbnail:fakelogo,sourceUrl:`https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK` }},quoted: mek})
