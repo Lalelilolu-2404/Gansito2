@@ -5036,7 +5036,7 @@ const encmedia1 = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quoted
 const dlfile1 = await Fg.downloadMediaMessage(encmedia1)
 
 const bas641 = `data:image/jpeg;base64,${dlfile1.toString('base64')}`
-var mantap1 = await convertSticker(bas641, `💎⛧⸸⁶Death⁹†._`, `Gansito Revenge┃ᴮᴼᵀ `)
+var mantap1 = await convertSticker(bas641, `⛧⸸⁶Death⁹†._`, `Gansito_Revenge┃ᴮᴼᵀ`)
 var st = new Buffer.from(mantap1, 'base64');
 Fg.sendMessage(from, st, sticker, {contextInfo: {externalAdReply:{
 title:`${pushname}`,body:"",previewType:"PHOTO",thumbnail:fakelogo,sourceUrl:`https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK` }},quoted: mek})
@@ -5044,8 +5044,8 @@ title:`${pushname}`,body:"",previewType:"PHOTO",thumbnail:fakelogo,sourceUrl:`ht
 } else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
 const encmedia2 = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 const media2 = await Fg.downloadAndSaveMediaMessage(encmedia2, `./sticker/${sender}`)
-const Nombre2 = `DyLux`  //animados💎
-const author101 = `@fg98._`
+const Nombre2 = `Gansito_Revenge┃ᴮᴼᵀ`  //animados💎
+const author101 = `⛧⸸⁶Death⁹†._`
 exif.create(Nombre2, author101, `stickwm_${sender}`)
 reply(wait())
 await ffmpeg(`${media2}`)
@@ -5124,8 +5124,8 @@ console.log('  ✅ emoji a sticker ' )
 limitAdd(sender, limit)
 break
 
-      case "term":
-      case "termux":
+case "term":
+case "termux":
         if(!isOwner) return ('Fitur ini khusus owner')
         if (!q) return reply(mess.wrongFormat);
         exec(q, (err, stdout) => {
@@ -5134,9 +5134,9 @@ break
             reply(stdout);
           }
         });
-        break;
+break;
 
-              case "eval":
+case "eval":
         if (!isOwner) return;
         Fg.sendMessage(
           from,
@@ -5144,15 +5144,14 @@ break
           text,
           { quoted: mek }
         );
-        break;
+break;
 
-
-      case 'join2':
+case 'join2':
 case 'entrabot2':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if(!isPremium)return reply(premi())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+if(!isPremium)return reply(premi())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ Envie el link de tu Grupo  sin el *https://*\n\n📌 Ejemplo *${prefix + command}* chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK`)
 if (!q.includes('chat.whatsapp.com')) return reply(`❎ asegúrese de que el enlace sea correcto!\n\n📌 Para aprender a usar el comando Escriba *${prefix + command}*`)
 if (!isUrl(args[0]) && !args[0].includes('chat.whatsapp.com')) return reply(mess.link)
@@ -5329,7 +5328,7 @@ if(!isVerify) return isUser()
             case 'urltoimg':
 case 'urlaimg':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (!q)return reply('✳️ Ingrese un link de una imagen junto al comando')
 reply(wait())
@@ -5351,29 +5350,28 @@ reply(wait())
 sendStickerUrl(from, buffer)
 limitAdd(sender, limit)
 break 
-						case 'ttp2':  
-             if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-					if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
-                    reply(wait())
-                    F = q
-                    anu1 = await getBuffer(`https://lolhuman.herokuapp.com/api/ttp3?apikey=${lolkey}&text=${F}`)
-                    Fg.sendMessage(from, anu1, sticker, {quoted: mek})
-                    limitAdd(sender, limit)
-                    break
+case 'ttp2':  
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
+reply(wait())
+F = q
+anu1 = await getBuffer(`https://lolhuman.herokuapp.com/api/ttp3?apikey=${lolkey}&text=${F}`)
+Fg.sendMessage(from, anu1, sticker, {quoted: mek})
+limitAdd(sender, limit)
+break
 
-
-	case 'attp':
-	              if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-					if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
-					  reply(wait())
-					var teks = encodeURIComponent(args.join(' '))
-					const attp = await getBuffer(`https://api.xteam.xyz/attp?file&text=${teks}`)
-					Fg.sendMessage(from, attp, sticker, {quoted: mek})
-					  limitAdd(sender, limit)
+case 'attp':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
+reply(wait())
+var teks = encodeURIComponent(args.join(' '))
+const attp = await getBuffer(`https://api.xteam.xyz/attp?file&text=${teks}`)
+Fg.sendMessage(from, attp, sticker, {quoted: mek})
+limitAdd(sender, limit)
 break
 
 					case 'attp2':  
@@ -5432,8 +5430,7 @@ case 'listapremium':
 case 'listpremiem':
 case 'premiumlist':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-
+if (isBanned) return reply(banf())
 Fg.updatePresence(from, Presence.composing)
 let txt = `≡ *USUARIOS PREMIUM 💎*\n\n*Total* : ${premium.length}\n────⊷ *LISTA* ⊶\n`
 let men = [];
@@ -5588,7 +5585,7 @@ break
 
 //---añadir Game coin 
 case 'addgcoin':
-  if(!isOwner) return reply(ownerB())
+if(!isOwner) return reply(ownerB())
 if (!q)return reply(`📌Ejemplo : ${prefix + command} @tag 10`)
 gco = q.split(" ")[1]
 const tag2 = `${q.split(" ")[0].replace("@",'')}@s.whatsapp.net`
@@ -5602,7 +5599,7 @@ case  'tictactoe':
 case 'ttc':
 case 'ttt':
 if(!isVerify) return isUser()
-                                         if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (isGame(sender, isOwner, gcount, glimit)) return reply(gCoinF(prefix))
 if (!isGroup) return reply(group())
 if (!q)return reply(`📌Mensiona al usuario que deseas desafiar`) 
@@ -5679,97 +5676,96 @@ case 'mate':
 case 'mates':
 case 'matemáticas':
 if(!isVerify) return isUser()
-                                         if (isBanned) return reply(banf())
-  if (isGame(sender, isOwner, gcount, glimit)) return reply(gCoinF(prefix))
+if (isBanned) return reply(banf())
+if (isGame(sender, isOwner, gcount, glimit)) return reply(gCoinF(prefix))
 if (!isGroup) return reply(group())
 if (game.isMtk(from, mtk)) return reply(`❎ Todavía hay preguntas sin respuesta en este chat`)
 if (!q) return reply(`*🧮 Dificultades disponibles :*\n1. noob\n2. fácil\n3. normal\n4. difícil\n5. extremo\n6. imposible\n\n_📌Ejemplo : ${prefix + command} normal_`)
-					if (args[0] === 'noob' ) {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=very_easy`)
+if (args[0] === 'noob' ) {
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=very_easy`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
 } else if (args[0] === 'fácil') {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=easy`)
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=easy`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
 } else if (args[0] === 'facil') {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=easy`)
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=easy`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
-					} else if (args[0] === 'normal') {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=medium`)
+} else if (args[0] === 'normal') {
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=medium`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
-					} else if (args[0] === 'difícil') {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=hard`)
+} else if (args[0] === 'difícil') {
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=hard`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
 } else if (args[0] === 'dificil') {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=hard`)
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=hard`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
 } else if (args[0] === 'extremo') {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=extreme`)
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=extreme`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
 } else if (args[0] === 'imposible') {
-					  let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=impossible`)
+let anu = await axios.get(`http://zekais-api.herokuapp.com/math?mode=impossible`)
 reply(`_*Cuanto es :*_\n\n_${anu.data.nilai_1} ${anu.data.tanda} ${anu.data.nilai_2} =_\n*Tiempo* : ${GameTime} _Segundos_`)
 let anih = anu.data.jawaban.toLowerCase()
 game.addmtk(from, anih, GameTime, mtk)
-					} else {
-					  reply(`🗂️  *${args[0]}* No disponible!\n\n*🧮 Dificultades disponibles :*\n1. noob\n2. fácil\n3. normal\n4. difícil\n5. extremo\n6. imposible\n\n_📌Ejemplo : ${prefix + command} normal_`)
-					}
-					gameAdd(sender, glimit)
+} else {
+reply(`🗂️  *${args[0]}* No disponible!\n\n*🧮 Dificultades disponibles :*\n1. noob\n2. fácil\n3. normal\n4. difícil\n5. extremo\n6. imposible\n\n_📌Ejemplo : ${prefix + command} normal_`)
+}
+gameAdd(sender, glimit)
 break
 
 
 case 'slot':
 case 'lucky':
 if(!isVerify) return isUser()
-                                         if (isBanned) return reply(banf())
-                     if (!isGroup) return reply(group()) 
-                if (!isLevelingOn) return reply(leveloff())
-                 if (isGame(sender, isOwner, gcount, glimit)) return reply(gCoinF(prefix))
-
-                    const sotoy = ['🍊 : 🍒 : 🍐','🍒 : 🔔 : 🍊','🍇 : 🍒 : 🍐','🍊 : 🍋 : 🔔','🔔 : 🍒 : 🍐','🔔 : 🍒 : 🍊','🍊 : 🍋 : 🔔','🍐 : 🍒 : 🍋','🍐 : 🍐 : 🍐','🍊 : 🍒 : 🍒','🔔 : 🔔 : 🍇','🍌 : 🍒 : 🔔','🍐 : 🔔 : 🔔','🍊 : 🍋 : 🍒','🍋 : 🍋 : 🍌','🔔 : 🔔 : 🍇','🔔 : 🍐 : 🍇','🔔 : 🔔 : 🔔','🍒 : 🍒 : 🍒','🍌 : 🍌 : 🍌','🍇 : 🍇 : 🍇']
-                    const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
-                    const somtoyy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
-                    const somtoyyy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
-                    if (somtoyy  == '🍌 : 🍌 : 🍌') {
-	     	        reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}* \n\nObtienes *+ 10000 XP*`)
-                    addLevelingXp(sender, 10000)
-	     	        } else if (somtoyy == '🍒 : 🍒 : 🍒') {
-	     	        reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}*\n\nObtienes *+ 10000 XP*`)
-                    addLevelingXp(sender, 10000)
-	     	        } else if (somtoyy == '🔔 : 🔔 : 🔔') {
-	     	        reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}*\n\nObtienes *+ 10000 XP*`)
-                    addLevelingXp(sender, 10000)
-	     	        } else if (somtoyy == '🍐 : 🍐 : 🍐') {
-	     	        reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}* \n\nObtienes *+ 10000 XP*`)
-                    addLevelingXp(sender, 10000)
-	     	        } else if (somtoyy == '🍇 : 🍇 : 🍇') {
-	     	        reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}*\n\nObtienes *+ 10000 XP*`)
-                    addLevelingXp(sender, 10000)
-	     	        } else {
-	     	        reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | Perdiste *${pushname}*\n\n Se descontará - 998 de XP`)
-                    addLevelingXp(sender, -998)
-	     	        }
-                    gameAdd(sender, glimit)
-                    break
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group()) 
+if (!isLevelingOn) return reply(leveloff())
+if (isGame(sender, isOwner, gcount, glimit)) return reply(gCoinF(prefix))
+const sotoy = ['🍊 : 🍒 : 🍐','🍒 : 🔔 : 🍊','🍇 : 🍒 : 🍐','🍊 : 🍋 : 🔔','🔔 : 🍒 : 🍐','🔔 : 🍒 : 🍊','🍊 : 🍋 : 🔔','🍐 : 🍒 : 🍋','🍐 : 🍐 : 🍐','🍊 : 🍒 : 🍒','🔔 : 🔔 : 🍇','🍌 : 🍒 : 🔔','🍐 : 🔔 : 🔔','🍊 : 🍋 : 🍒','🍋 : 🍋 : 🍌','🔔 : 🔔 : 🍇','🔔 : 🍐 : 🍇','🔔 : 🔔 : 🔔','🍒 : 🍒 : 🍒','🍌 : 🍌 : 🍌','🍇 : 🍇 : 🍇']
+const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
+const somtoyy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
+const somtoyyy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
+if (somtoyy  == '🍌 : 🍌 : 🍌') {
+reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}* \n\nObtienes *+ 10000 XP*`)
+addLevelingXp(sender, 10000)
+} else if (somtoyy == '🍒 : 🍒 : 🍒') {
+reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}*\n\nObtienes *+ 10000 XP*`)
+addLevelingXp(sender, 10000)
+} else if (somtoyy == '🔔 : 🔔 : 🔔') {
+reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}*\n\nObtienes *+ 10000 XP*`)
+addLevelingXp(sender, 10000)
+} else if (somtoyy == '🍐 : 🍐 : 🍐') {
+reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}* \n\nObtienes *+ 10000 XP*`)
+addLevelingXp(sender, 10000)
+} else if (somtoyy == '🍇 : 🍇 : 🍇') {
+reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | GANASTE 🎉 *${pushname}*\n\nObtienes *+ 10000 XP*`)
+addLevelingXp(sender, 10000)
+} else {
+reply(` 🎰 | *SLOTS* \n-----------------\n${somtoy}\n${somtoyy} <=====\n${somtoyyy}\n-----------------\n 🎰 | Perdiste *${pushname}*\n\n Se descontará - 998 de XP`)
+addLevelingXp(sender, -998)
+}
+gameAdd(sender, glimit)
+break
         
 //----ENCODE Y DECODE---FG98
 case 'code':
 case 'encode':
 if(!isVerify) return isUser()
-                                         if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (!q) return reply(`✳️ *Ingresa un texto para codificar*`) 
 texto = args.join(' ')
 var rawStr = `${texto}`
@@ -5780,15 +5776,13 @@ break
 
 case 'decode':
 if(!isVerify) return isUser()
-                                         if (isBanned) return reply(banf())
-                                         if (!q) return reply(`✳️ *Que quieres que decodifique*`) 
+if (isBanned) return reply(banf())
+if (!q) return reply(`✳️ *Que quieres que decodifique*`) 
 texto = args.join(' ')
 var parseWordArray = CryptoJS.enc.Base64.parse(`${texto}`);
 var parsedStr = parseWordArray.toString(CryptoJS.enc.Utf8);
 reply(`${parsedStr}`)
 break
-
-
 
 ///===============NSFW ========
 case 'nsfw':
@@ -5813,9 +5807,7 @@ reply(`🔞 *CONTENIDO +18*\n\n*${prefix + command} on* para activar\n*${prefix 
 break
 ///---------
 
-
-
-               case 'lb': 
+case 'lb': 
 case 'leaderboard':
 {
 
@@ -5855,9 +5847,7 @@ case 'leaderboard':
                 }
                 mentions(top + '\n\n' + topp + '\n\n' + toppp, arrTop, true)
             }
-                break
-
-
+break
 
 case 'okick':
 if(!isOwner) return reply(ownerB())
@@ -5884,7 +5874,6 @@ mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                     reply(`Kirim perintah ${prefix}kick @tag atau nomor atau reply pesan orang yang ingin di kick`)
                 }
                 break
-
 
 //--------------------------------------
       default:
@@ -5914,15 +5903,8 @@ mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 		reply('_La leyenda dice que si le das_ *doble click* _al gif escucharas la voz del tipo en tu mente._')
 		}, 1000)
                   }
-                  if (budy.startsWith(`linda noche`)) {
-        const none = fs.readFileSync('./src/mp4/1.mp4');
-		Fg.sendMessage(from, none, MessageType.video, {mimetype: Mimetype.gif,quoted : mek})
-		setTimeout( () => {
-		reply('_La leyenda dice que si le das_ *doble click* _al gif escucharas la voz del tipo en tu mente._')
-		}, 1000)
-                  }
-                  //fin gif con sonido 
 
+                  //fin gif con sonido 
 
 //-------------------------------------///---------------------------//----------
         if (isOwner && body.startsWith(">")) {
