@@ -959,14 +959,7 @@ console.error(err)
       );
     };
 
-    const sendButLok = async (
-      id,
-      text1,
-      desc1,
-      gam1,
-      but = [],
-      options = {}
-    ) => {
+    const sendButLok = async (id, text1, desc1, gam1, but = [], options = {}) => {
       kma = gam1;
       mhan = await Fg.prepareMessage(from,  {degreesLatitude: 0, degreesLongitude: 0, jpegThumbnail: gam1}, location)
       const buttonMessages = {
@@ -976,12 +969,7 @@ console.error(err)
         buttons: but,
         headerType: 6,
       };
-      Fg.sendMessage(
-        id,
-        buttonMessages,
-        MessageType.buttonsMessage,
-        {quoted: mek}
-      );
+      Fg.sendMessage(id, buttonMessages, MessageType.buttonsMessage, {quoted: fnsfw});
     };
     ///Button Location
 const sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
@@ -1298,13 +1286,16 @@ break
 ❐ *${prefix}groupDylux*
 ❐ *${prefix}Join*
 └──────────────`
-        sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:imgth},
-
- [
-{buttonId:`${prefix}allmenu`,buttonText:{displayText:'⦙☰ MENU'},type:1},
-{buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}],
-
-{contextInfo: { mentionedJid: [sender]}} )
+/**
+sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:imgth}, 
+		[{buttonId:`${prefix}allmenu`,buttonText:{displayText:'⦙☰ MENU'},type:1}, 
+		 {buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}], 
+		{contextInfo: { mentionedJid: [sender]}} )
+**/
+sendButLok(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:imgth}, 
+		[{buttonId:`${prefix}allmenu`,buttonText:{displayText:'⦙☰ MENU'},type:1}, 
+		 {buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}], 
+		{quoted: fnsfw})
 break;
 
 case 'allmenu':
