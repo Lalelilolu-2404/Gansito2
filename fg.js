@@ -1295,7 +1295,7 @@ sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones 
 sendButLok(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:imgth}, 
 		[{buttonId:`${prefix}allmenu`,buttonText:{displayText:'⦙☰ MENU'},type:1}, 
 		 {buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}], 
-		{quoted: fnsfw})
+	   {contextInfo: { mentionedJid: [sender]}})
 break;
 
 case 'allmenu':
