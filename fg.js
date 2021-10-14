@@ -605,8 +605,14 @@ Fg.sendMessage(from, teks, text, {quoted:mek,thumbnail : fakefg})
         caption: yes,
       });
     };
-
-
+// quoted
+const fnsfw = {
+key:
+{ fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ?
+{ remoteJid: "status@broadcast" } : {}) },
+message: { "videoMessage": { "caption":"⌜⛧⸸⁶Gansito_Revenge⁹†♡ت⌟", 'jpegThumbnail': fs.readFileSync('./image/nsfw.jpg')}}
+}
     //-- juego random números 
 function randomNomor(angka){
 return Math.floor(Math.random() * angka) + 1
@@ -1349,8 +1355,17 @@ const menuxxx =`
 ◈​​└ *${prefix}slap`
 sendButMessage(from, `${menuxxx}`, `Rico o turbio xd`, 
 	       [{buttonId: `Id111111`, buttonText: {displayText: `Rico :3`}, type: 1}, 
-		{buttonId: `Id222222`, buttonText: {displayText: `Turbio :x`}, type: 1}]
+		{buttonId: `Id222222`, buttonText: {displayText: `Turbio :x`}, type: 1}], {quoted: fnsfw},
 	      )	
+/**		    
+Fg.sendMessage(from, `${menuxxx}`, text, { quoted: ftrol, contextInfo: { 
+	externalAdReply:{
+		title: `Uwu :3`,
+		body:"",
+		mediaType:"2",
+		thumbnail: ofrply,mediaUrl:`https://youtube.com/c/ConfuMods`}}})
+**/
+break
 break		    	    
 	
 //+18 xd
