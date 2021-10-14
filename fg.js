@@ -1317,8 +1317,190 @@ sendButLocation(from, `${help(prefix, pushname, autorfg)}`, `*${fecha()}*\n▢ *
 {buttonId:`${prefix}reglas`,buttonText:{displayText:'📜 REGLAS'},type:1}], 
 
 {contextInfo: { mentionedJid: [sender]}} )
+break   
+		    
+case 'nsfwmenu':
+const menuxxx =`
+◈├━━━━━ ◈ ◈ ━━━━━ ◈
+   ┠━ೋ 𝙉𝙎𝙁𝙒 ೋ
+◈├━━━━━ ◈ ◈ ━━━━━ ◈
+◈​​┃
+◈​​┃ *${prefix}trapnime
+◈​​┃ *${prefix}neko
+◈​​┃ *${prefix}futa
+◈​​┃ *${prefix}megumin
+◈​​┃ *${prefix}blowjob
+◈​​┃ *${prefix}hentai
+◈​​┃ *${prefix}awoo
+◈​​┃ *${prefix}bj 
+◈​​┃ *${prefix}eroneko
+◈​​┃ *${prefix}lesbian
+◈​​┃ *${prefix}anal
+◈​​┃ *${prefix}yuri
+◈​​┃ *${prefix}baka
+◈​​┃ *${prefix}xneko
+◈​​┃ *${prefix}wallpaper
+◈​​┃ *${prefix}pussy
+◈​​┃ *${prefix}kitsune
+◈​​┃ *${prefix}keta
+◈​​┃ *${prefix}poke
+◈​​└ *${prefix}slap`
+sendButMessage(from, `${menuxxx}`, `Rico o turbio xd`, 
+	       [{buttonId: `Id111111`, buttonText: {displayText: `Rico :3`}, type: 1}, 
+		{buttonId: `Id222222`, buttonText: {displayText: `Turbio :x`}, type: 1}]
+	      )	
+break		    	    
+	
+//+18 xd
+case 'yuri':
+case 'anal':
+case 'pussy':
+case 'lesbian':
+case 'kitsune':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+kon = (`https://hardianto-chan.herokuapp.com/api/anime/random?nsfw=${command}&apikey=hardianto`)
+anu = await getBuffer(kon)
+Fg.sendMessage(from, anu, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
 break
 
+case 'eroneko':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?nsfw=eroNeko&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'futa':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?nsfw=futanari&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'bj':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?nsfw=bJ&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+
+case 'wallpaper':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?sfw=wallpaper&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'xneko':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?sfw=neko&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'baka':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?sfw=baka&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'slap':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?sfw=slap&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'poke':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?sfw=poke&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'keta':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+hai = (`https://hardianto-chan.herokuapp.com/api/anime/random?nsfw=keta&apikey=hardianto`)
+kon = await getBuffer(hai)
+Fg.sendMessage(from, kon, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case  'awoo':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+anu = await fetchJson(`https://waifu.pics/api/sfw/awoo`)
+buffer = await getBuffer(anu.url)
+Fg.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case  'blowjob':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+anu = await fetchJson(`https://nekos.life/api/v2/img/blowjob`)
+buffer = await getBuffer(anu.url)
+Fg.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case  'hentai': 
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+anu = await fetchJson(`https://waifu.pics/api/nsfw/neko`)
+buffer = await getBuffer(anu.url)
+Fg.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case  'megumin':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+anu = await fetchJson(`https://waifu.pics/api/sfw/megumin`)
+buffer = await getBuffer(anu.url)
+Fg.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case  'neko':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+anu = await fetchJson(`https://waifu.pics/api/nsfw/neko`)
+buffer = await getBuffer(anu.url)
+Fg.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case  'trapnime':
+if (!isGroup) return reply(group())
+if (!isNsfw) return reply(`*🔞NSFW*`)
+reply(wait())
+anu = await fetchJson(`https://waifu.pics/api/nsfw/trap`)
+buffer = await getBuffer(anu.url)
+cnf.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+//fin
+		    
+case 'waifuxx':
+reply(wait())
+anu = (`https://bx-hunter.herokuapp.com/api/sfw/waifu?apikey=Ikyy69}`)
+img = await getBuffer(anu)
+Fg.sendMessage(from, img, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break
+case 'lolixx':
+reply(wait())
+anu = await fetchJson(`https://bx-hunter.herokuapp.com/api/randomloli?apikey=Ikyy69`)
+img = await getBuffer(anu.link)
+Fg.sendMessage(from, img, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
+break		    
+		    
 //--info bot 
 case 'info':
 if(!isVerify) return isUser()
