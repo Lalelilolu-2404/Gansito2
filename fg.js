@@ -1730,20 +1730,12 @@ if(!isVerify) return isUser()
   if (isBanned) return reply(banf())
 		 if (args.length < 1) return reply(`Hola _*${pushname}*_ quieres charlar un rato?\n\nResponde con *${prefix + command}* _tu mensaje_`)
                      texto = args.join(' ')
-                     anu = await getJson(`https://api.simsimi.net/v1/?text=${texto}&lang=es`)
-                     simfg = (`${anu.success}`)      
-                     replyfg(simfg)
-                     break
-                     case 'p1':
-if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-		 if (args.length < 1) return reply(`Hola _*${pushname}*_ quieres charlar un rato?\n\nResponde con *${prefix + command}* _tu mensaje_`)
-                     anu = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=es`)
+                     anu = await getJson(`https://api.simsimi.net/v2/?text=${q}&lc=es`)
                      simfg = (`${anu.success}`)      
                      replyfg(simfg)
                      break
 
-                    case 'sc': 
+case 'sc': 
 case 'script':
  if(!isVerify) return isUser()
   if (isBanned) return reply(banf())
