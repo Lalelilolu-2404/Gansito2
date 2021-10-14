@@ -1355,8 +1355,8 @@ const menuxxx =`
 ◈​​└ *${prefix}slap`
 sendButMessage(from, `${menuxxx}`, `Rico o turbio xd`, 
 	       [{buttonId: `Id111111`, buttonText: {displayText: `Rico :3`}, type: 1}, 
-		{buttonId: `Id222222`, buttonText: {displayText: `Turbio :x`}, type: 1}], {quoted: fnsfw},
-	      )	
+		{buttonId: `Id222222`, buttonText: {displayText: `Turbio :x`}, type: 1}], 
+	       {quoted: fnsfw})	
 /**		    
 Fg.sendMessage(from, `${menuxxx}`, text, { quoted: ftrol, contextInfo: { 
 	externalAdReply:{
@@ -1365,9 +1365,11 @@ Fg.sendMessage(from, `${menuxxx}`, text, { quoted: ftrol, contextInfo: {
 		mediaType:"2",
 		thumbnail: ofrply,mediaUrl:`https://youtube.com/c/ConfuMods`}}})
 **/
-break
 break		    	    
-	
+
+case 'test':
+Fg.sendMessage(from,`Anna dame Gansito :'c`,MessageType.text, {quoted: fnsfw})
+break	    
 //+18 xd
 case 'yuri':
 case 'anal':
@@ -1507,9 +1509,9 @@ break
 		    
 case 'waifuxx':
 reply(wait())
-anu = (`https://bx-hunter.herokuapp.com/api/sfw/waifu?apikey=Ikyy69}`)
+anu = (`https://bx-hunter.herokuapp.com/api/sfw/waifu?apikey=Ikyy69`)
 img = await getBuffer(anu)
-Fg.sendMessage(from, img, image, { quoted: mek})
+Fg.sendMessage(from, img, image, { quoted: mek, thumbnail: fs.readFileSync('./image/fake.jpg')})
 break
 case 'lolixx':
 reply(wait())
