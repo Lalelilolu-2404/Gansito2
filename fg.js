@@ -4461,15 +4461,16 @@ reply(`✳️ *DESPEDIDAS*\n\n*${prefix + command} on* para activar\n*${prefix +
 break
 
 //--- on/off antilink WhatsApp 
-				case 'antilink':
-				case 'antilinkwha':
-				case 'antilinkwhatsapp':
-				if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-				if (!isGroup) return reply(group())
-					if (!isGroupAdmins && !isOwner) return reply(admin())
-					if (!isBotGroupAdmins) return reply(Badmin())
-					if (args.length < 1) return reply(`✳️ *ANTILINK WHATSAPP*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
+case 'antilink':
+case 'antilinkwha':
+case 'antilinkwhatsapp':
+case 'antigp'
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
+if (!isGroupAdmins && !isOwner) return reply(admin())
+if (!isBotGroupAdmins) return reply(Badmin())
+if (args.length < 1) return reply(`✳️ *ANTILINK WHATSAPP*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
 					if ((args[0]) === 'on') {
 						if (isAntilink) return reply('✳️ Antilink ya está activo')
 						_antilink.push(from)
@@ -4483,14 +4484,13 @@ break
 					} else {
 						reply(`✳️ *ANTILINK WHATSAPP*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
 					}
-					break
+break
 
-					//---  antilink Telegram
-
+//---  antilink Telegram
 case 'antilinktelegram':
 case 'antilinktele':
-				if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 				if (!isGroup) return reply(group())
 					if (!isGroupAdmins && !isOwner) return reply(admin())
 					if (!isBotGroupAdmins) return reply(Badmin())
@@ -4508,19 +4508,19 @@ case 'antilinktele':
 					} else {
 						reply(`✳️ *ANTILINK TELEGRAM*\n\n*${prefix + command} 1* para activar\n*${prefix + command} 0* para desactivar`)
 					}
-					break
+break
 
-					//---  antilink Discord 
+//---  antilink Discord 
 
 case 'antilinkdiscord':
 case 'antilinkdis':
 case 'antilinkdi':
-				if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-				if (!isGroup) return reply(group())
-					if (!isGroupAdmins && !isOwner) return reply(admin())
-					if (!isBotGroupAdmins) return reply(Badmin())
-					if (args.length < 1) return reply(`✳️ *ANTILINK DISCORD*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
+if (!isGroupAdmins && !isOwner) return reply(admin())
+if (!isBotGroupAdmins) return reply(Badmin())
+if (args.length < 1) return reply(`✳️ *ANTILINK DISCORD*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
 					if ((args[0]) === 'on') {
 						if (isAntiDis) return reply('✳️ Antilink Discord ya está activo')
 						_antilinkdi.push(from)
@@ -4534,10 +4534,7 @@ case 'antilinkdi':
 					} else {
 						reply(`✳️ *ANTILINK DISCORD*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
 					}
-					break
-
-
-
+break
 
 case 'banchat':
 if (!isGroup) return reply(group())
@@ -4561,8 +4558,8 @@ break
 case 'listbanchat': 
 case 'listbc':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
- teks = `▢ *Grupos silenciados!*\n▢ _Total : ${bancht.length}_\n\n`
+if (isBanned) return reply(banf())
+teks = `▢ *Grupos silenciados!*\n▢ _Total : ${bancht.length}_\n\n`
 for(let i of bancht){
 met = await Fg.groupMetadata(i)
 teks += '🛡️ Id : ' + i + '\n'
@@ -4572,8 +4569,8 @@ reply(teks)
 break
 
 case 'detectorinfo':
-       case 'detecinfo':
-        case 'infodetec':
+case 'detecinfo':
+case 'infodetec':
 detec = `
 ≡ *DETECTOR INFO*
 ┌──────────────
@@ -4590,11 +4587,11 @@ reply(detec)
 break
 
 case 'infogp':
-				case 'groupinfo':
-				case 'infogrupo':
-        case 'grupoinfo':
-          // if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())  
+case 'groupinfo':
+case 'infogrupo':
+case 'grupoinfo':
+// if(!isVerify) return isUser()
+if (isBanned) return reply(banf())  
 Fg.updatePresence(from, Presence.composing)
 if (!isGroup) return reply(group())
   try {
@@ -4602,8 +4599,7 @@ if (!isGroup) return reply(group())
 		} catch {
 	ppUrl = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg'
   	}
-  reply(wait())
-
+reply(wait())
 infogp = `┌──「 *INFO DE GRUPO* 」
 ▢ *🔖Nombre* : ${groupName}
 ▢ *🪀Se creó el* : ${moment(`${groupMetadata.creation}` * 1000).tz('Europe/Paris').format('DD/MM/YYYY HH:mm:ss')}
@@ -4745,9 +4741,8 @@ Fg.updatePresence(from, Presence.composing)
 ▢ *💰 Coin* : ${getBalance(sender, balance)}
 └──────────────`
 
-					buffer = await getBuffer(ppimg)
-
-					Fg.sendMessage(from, buffer, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakefg, quoted: mek, caption: profile})
+buffer = await getBuffer(ppimg)
+Fg.sendMessage(from, buffer, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakefg, quoted: mek, caption: profile})
 break
 
 //-- Eliminar mensaje del bot
@@ -4755,9 +4750,9 @@ case 'delete':
 case 'del':
 case 'd':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-					if (!isGroup)return reply(group())
-					if (!isGroupAdmins && !isOwner) return reply(admin())
+if (isBanned) return reply(banf())
+if (!isGroup)return reply(group())
+if (!isGroupAdmins && !isOwner) return reply(admin())
 try{
 if(!isQuotedMsg)return reply('✳️ Responde a un mensaje mío para que lo elimine!')
 pp = {id:mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true}
@@ -4770,11 +4765,10 @@ console.log(e)
 break
 //----
 
-      case 'play':
+case 'play':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
 reply(wait())
 let yut = await yts(q)
@@ -4810,7 +4804,7 @@ break
 //--- sin api
 case 'mp3fg':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 try {
 reply(wait())
 let yut = await yts(q)
@@ -4819,7 +4813,7 @@ yta(yut.all[0].url)
 const { dl_link, thumb, title, filesizeF, filesize } = res
 axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 .then((a) => {
-if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `*P L A Y  M P 3*\n\n Title : ${title}\nExt : MP3\nFilesize : ${filesizeF}\nUpload : ${yut.videos[0].ago}\n Views : ${yut.videos[0].views}\nDuration : ${yut.videos[0].timestamp}\nLink : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`)
+if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `*P L A Y  M P 3*\n\n Title : ${title}\nExt : MP3\nFilesize : ${filesizeF}\nUpload : ${yut.videos[0].ago}\n Views : ${yut.videos[0].views}\nDuration : ${yut.videos[0].timestamp}\nLink : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`)
 
 const captionis = `*P L A Y  M P 3*\n\nTitle : ${title}\n Size : ${filesizeF}\nViews: ${yut.videos[0].views}\n Duration : ${yut.videos[0].timestamp}\nURL : ${yut.videos[0].url}\n\n*_Permintaan Anda Sedang Di Prosess!_*`
 //sendMediaURL(from, thumb, captionis)
@@ -4835,7 +4829,7 @@ reply(mess.error.api)
 }
 break
 //--con api
-   case 'mp3fg2':
+case 'mp3fg2':
 if(!isVerify) return isUser()
   if (isBanned) return reply(banf())
 reply(wait())
@@ -4858,7 +4852,7 @@ reply(wait())
 
 case 'mp4fg' :
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 try {
 reply(wait())
 let yut = await yts(q)
@@ -4884,25 +4878,23 @@ reply(mess.error)
 }
 break
 
- case 'play2':
-			if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-  if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
-  reply(wait())
-            var srch = args.join('')
-    		ytfg = await yts(srch);
-    		aramat = ytfg.all 
-   			var mulaikah = aramat[0].url							
-                  try {
-
-                    yta(mulaikah)
-                    .then((res) => {
-                        const { dl_link, thumb, title, filesizeF, filesize } = res
-                        axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
-                        .then(async (a) => {
-                        if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `
+case 'play2':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
+reply(wait())
+var srch = args.join('')
+ytfg = await yts(srch);
+aramat = ytfg.all 
+var mulaikah = aramat[0].url							
+try {
+yta(mulaikah)
+.then((res) => {
+const { dl_link, thumb, title, filesizeF, filesize } = res
+axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+.then(async (a) => {
+if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `
 *🎶Musica encontrada*
 ‣ *📌Título* : ${title}
 ‣ *📟 Ext* : mp3
@@ -4911,7 +4903,7 @@ break
 ‣ *⏱️Duración* : ${ytfg.videos[0].timestamp}
 ‣ *🔗 Link* : ${a.data}
 _📤 Enviando, espere si el audio no aparece, descargue por el link_`)
-                        const captions = `
+const captions = `
 *🎶Musica encontrada*
 ‣ *📌Título* : ${title}
 ‣ *📟 Ext* : mp3
@@ -4920,19 +4912,19 @@ _📤 Enviando, espere si el audio no aparece, descargue por el link_`)
 ‣ *⏱️Duración* : ${ytfg.videos[0].timestamp}
 ‣ *🔗 Link* : ${a.data}
 _📤 Enviando, espere si el audio no aparece, descargue por el link_`
-                        sendMediaURL(from, thumb, captions)
-                        await sendMediaURL(from, dl_link).catch(() => reply('error'))
-                        limitAdd(sender, limit)
-                        })                
-                        })
-                        } catch (err) {
-                        reply(mess.error.api) }
-                   break
-   case 'play3':
-if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+sendMediaURL(from, thumb, captions)
+await sendMediaURL(from, dl_link).catch(() => reply('error'))
+limitAdd(sender, limit)
+})                
+})
+} catch (err) {
+reply(mess.error.api) }
+break
 
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+case 'play3':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
 reply(wait())
   pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${q}`)
@@ -4945,26 +4937,27 @@ reply(wait())
 ▢ *Título* : ${judul}
 ▢ *Peso* : ${size}
 ▢ *Duracion* : ${durasi}`
-  if(Number(size.split(' MB')[0]) >= 6.00) return reply(`✳️ El archivo es demasiado grande, la reproducción de música se canceló, el tamaño máximo del archivo es de 6 mb`)
-  thumb = await getBuffer(foto)
-  Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
-  mp3 = await getBuffer(lagu)
-  Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
-  break
+if(Number(size.split(' MB')[0]) >= 6.00) return reply(`✳️ El archivo es demasiado grande, la reproducción de música se canceló, el tamaño máximo del archivo es de 6 mb`)
+thumb = await getBuffer(foto)
+Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
+mp3 = await getBuffer(lagu)
+Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
+break
 
+case 'lauris':
+reply(`${pl=await fetchJson(_0x50c0bc(0x3c5)+_0x4b2912)}`)
+break
  //---apokey
 case 'play4':
-			if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
 reply(wait())
-
-                playfg = q
-                anu = await fetchJson(`https://api.zeks.me/api/ytplaymp3?q=${playfg}&apikey=hamilton49`)
-                if (anu.error) return reply(anu.error)
-                infomp3 = `
+playfg = q
+anu = await fetchJson(`https://api.zeks.me/api/ytplaymp3?q=${playfg}&apikey=hamilton49`)
+if (anu.error) return reply(anu.error)
+infomp3 = `
 *🎶Musica encontrada*
 ‣ *📌Título* : ${anu.result.title}
 ‣ *🔮 Fuente :* ${anu.result.source}
@@ -4972,27 +4965,27 @@ reply(wait())
 ‣ *🔗 Link* : ${anu.result.url_audio}
 _📤 Enviando, espere si el audio no aparece, descargue por el link_`
 
-                buffer = await getBuffer(anu.result.thumbnail)
-                lagu = await getBuffer(anu.result.url_audio)
-                Fg.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-                Fg.sendMessage(from, lagu, document, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
-                limitAdd(sender, limit)
-                break
+buffer = await getBuffer(anu.result.thumbnail)
+lagu = await getBuffer(anu.result.url_audio)
+Fg.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
+Fg.sendMessage(from, lagu, document, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+limitAdd(sender, limit)
+break
 
-      case 'video':
-				case 'playvideo':
-				case 'playvid':
-				case 'playmp4':
-				if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if(!isPremium)return reply(premi())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-           if (args.length < 1) return reply(`✳️ *Ingresa el título de un video*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
-           reply(wait())
-        var srch = args.join("");
-        vidfg = await yts(srch);
-        aramat = vidfg.all;
-        var mulaikah = aramat[0].url;
+case 'video':
+case 'playvideo':
+case 'playvid':
+case 'playmp4':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if(!isPremium)return reply(premi())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ *Ingresa el título de un video*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
+reply(wait())
+var srch = args.join("");
+vidfg = await yts(srch);
+aramat = vidfg.all;
+var mulaikah = aramat[0].url;
         try {
           ytv(mulaikah).then((res) => {
             const { dl_link, thumb, title, filesizeF, filesize } = res;
@@ -5006,15 +4999,15 @@ _📤 Enviando, espere si el audio no aparece, descargue por el link_`
 ‣ *⚖️ Tamaño* : ${filesizeF}
 _📤 Enviando, espere si el video no aparece, descargue por el link_`
 
-                sendMediaURL(from, thumb, capt);
-                await sendMediaURL(from, dl_link).catch(() => reply("error"));
-              });
-          });
-        } catch (err) {
-          reply(mess.error.api);
-        }
-        limitAdd(sender, limit)
-        break;
+sendMediaURL(from, thumb, capt);
+await sendMediaURL(from, dl_link).catch(() => reply("error"));
+});
+});
+} catch (err) {
+reply(mess.error.api);
+}
+limitAdd(sender, limit)
+break;
 
       //𝗦𝗧𝗜𝗖𝗞𝗘𝗥 𝗠𝗔𝗞𝗘𝗥 
 
