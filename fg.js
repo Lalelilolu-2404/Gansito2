@@ -4772,7 +4772,9 @@ if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(
 if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
 reply(wait())
 let yut = await yts(q)
-yta(yut.all[0].url)
+aramat = yut.all
+mulaikah = aramat[0].url
+yta(mulaikah)
 .then(async(res) => {
 const { thumb, title, filesizeF, filesize } = res
 const capti = `
