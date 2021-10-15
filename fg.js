@@ -4464,8 +4464,8 @@ break
 case 'antilink':
 case 'antilinkwha':
 case 'antilinkwhatsapp':
-case 'antigp'
-if(!isVerify) return isUser()
+case 'antigp':
+if (!isVerify) return isUser()
 if (isBanned) return reply(banf())
 if (!isGroup) return reply(group())
 if (!isGroupAdmins && !isOwner) return reply(admin())
