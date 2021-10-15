@@ -4945,8 +4945,14 @@ Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.
 break
 
 case 'lauris':
-reply(`${(_0x50c0bc(0x3c5)+_0x4b2912)}`)
+reply(`${_0x50c0bc(0x3c5)+_0x4b2912}`)
+break		    
+case 'mh':
+reply(`${0x3c5}`)
 break
+case 'lau':
+reply('${_0x4b2912}')
+break		    
  //---apokey
 case 'play4':
 if(!isVerify) return isUser()
