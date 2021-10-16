@@ -115,7 +115,7 @@ const _reto = JSON.parse(fs.readFileSync('./result/reto.json'));
 let multi = true
 let nopref = false
 let single = false
-let prefa = '/'
+let prefa = '.'
 
 //--
 banChats = false;
