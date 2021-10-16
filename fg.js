@@ -4441,7 +4441,7 @@ case 'goodbye':
 case 'adios':
 case 'salidas':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (!isGroup) return reply(group())
 if (!isGroupAdmins && !isOwner) return reply(admin())
 if (!isWelcom) return reply('✳️ Para usar este comando, debe activar primero las *Bienvenidas*')
@@ -5031,13 +5031,11 @@ if (isBanned) return reply(banf())
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 const encmedia1 = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 const dlfile1 = await Fg.downloadMediaMessage(encmedia1)
-
 const bas641 = `data:image/jpeg;base64,${dlfile1.toString('base64')}`
 var mantap1 = await convertSticker(bas641, `⛧⸸⁶Death⁹†._`, `Gansito_Revenge┃ᴮᴼᵀ`)
 var st = new Buffer.from(mantap1, 'base64');
 Fg.sendMessage(from, st, sticker, {contextInfo: {externalAdReply:{
 title:`${pushname}`,body:"",previewType:"PHOTO",thumbnail:fakelogo,sourceUrl:`https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK` }},quoted: mek})
-
 } else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
 const encmedia2 = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 const media2 = await Fg.downloadAndSaveMediaMessage(encmedia2, `./sticker/${sender}`)
@@ -5075,7 +5073,7 @@ reply(`  *STICKER MAKER*\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n\
 }
 break
 
-      case 'toimage': 
+case 'toimage': 
 case 'toimg':
 case 'aimg':
 case 'aimagen':
@@ -5100,12 +5098,12 @@ break
 
 
 
-      case 'emoji':
-                   case 'semoji':
-                   case 'smoji':
-                   case 'jumbo':
+case 'emoji':
+case 'semoji':
+case 'smoji':
+case 'jumbo':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (args.length < 1) return reply(` *_EMOJI A STICKER_*\n──────────────\n✳️ Ingrese el emoji\n\n📌 Ejemplo : *${prefix + command}* 😜\n\n\nAlias del comando\n${prefix}emoji\n${prefix}semoji\n${prefix}jumbo\n${prefix}smoji`)
 reply(wait()) 
@@ -5165,9 +5163,9 @@ break
 case 'join':
 case 'entrabot':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if(!isPremium)return reply(premi())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+if(!isPremium)return reply(premi())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
         try {
           if (!isUrl(args[0]) && !args[0].includes("whatsapp.com"))
             return reply(mess.link);
@@ -5180,29 +5178,29 @@ if(!isVerify) return isUser()
         } catch {
           reply("❎ Link invalido!");
         }
-        limitAdd(sender, limit)
-        break;
+limitAdd(sender, limit)
+break;
 
-      case 'runtime':
-	              if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-					uptime = process.uptime()
-					fgrunti = ` ${kyun(uptime)}`
-					try {
-					const runfg = await getBuffer(`https://api.xteam.xyz/attp?file&text=${fgrunti}`)
-					Fg.sendMessage(from, runfg, sticker, {contextInfo: {externalAdReply:{
+case 'runtime':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+uptime = process.uptime()
+fgrunti = ` ${kyun(uptime)}`
+try {
+const runfg = await getBuffer(`https://api.xteam.xyz/attp?file&text=${fgrunti}`)
+Fg.sendMessage(from, runfg, sticker, {contextInfo: {externalAdReply:{
 title:`「 TIEMPO DE EJECUCION 」`,body:"",previewType:"PHOTO",thumbnail:fakelogo,sourceUrl:`https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK` }},quoted: mek})
-
 } catch (err) {
-	runte2 =`「 *TIEMPO DE EJECUCION* 」
- ${kyun(uptime)}`
-    reply(runte2)
-  }
+runte2 =`「 *TIEMPO DE EJECUCION* 」
+${kyun(uptime)}`
+reply(runte2)
+}
 break
-      case 'speed':
+
+case 'speed':
 case 'ping': 
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 const timestamp = speed();
 const latensi = speed() - timestamp
 uptime = process.uptime()
@@ -5227,7 +5225,7 @@ break
 case 'tomp3': 
 case 'amp3':
 if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 Fg.updatePresence(from, Presence.composing)
 if (!isQuotedVideo && !isQuotedAudio) return reply(`MP4 a MP3\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n\n🎥 Envia un video con el comando *${prefix + command}* o etiqueta un video  que se haya enviado`)
@@ -5244,7 +5242,8 @@ fs.unlinkSync(ran)
 })
 limitAdd(sender, limit)
 break
-      case 'tovid':
+
+case 'tovid':
 case 'tomp4':
 case 'amp4': 
 case 'tovideo':
@@ -5278,13 +5277,13 @@ if (mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isA
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await Fg.downloadAndSaveMediaMessage(encmedia)
 memek = await webp2gifFile(media)
-
 console.log(memek)
 anu = await getBuffer(memek.result)
 Fg.sendMessage(from, anu, video, {mimetype: 'video/gif', caption: '✅ Aquí tienes', quoted: mek})
 limitAdd(sender, limit)
 break
-      case 'tourl':
+
+case 'tourl':
 case 'aurl':
 if(!isVerify) return isUser()
   if (isBanned) return reply(banf())
@@ -5310,19 +5309,20 @@ break
 case 'tourl2':
 case 'aurl2':
 if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
-                   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-            if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedVideo ) && args.length == 0) {
-            boij = isQuotedImage || isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-            owgi = await Fg.downloadMediaMessage(boij)
-            fgurl = await upload(owgi)
-            reply(fgurl)
-            limitAdd(sender, limit)
-            } else {
-            reply('✳️Responde a un video o imagen')
-            }
-            break	
-            case 'urltoimg':
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedVideo ) && args.length == 0) {
+boij = isQuotedImage || isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+owgi = await Fg.downloadMediaMessage(boij)
+fgurl = await upload(owgi)
+reply(fgurl)
+limitAdd(sender, limit)
+} else {
+reply('✳️Responde a un video o imagen')
+}
+break	
+
+case 'urltoimg':
 case 'urlaimg':
 if(!isVerify) return isUser()
 if (isBanned) return reply(banf())
@@ -5335,13 +5335,12 @@ break
 //-----------------------------ATTP - TTP----------------------------
 
 case 'ttp':                     
-  if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-					if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
-					colorf = ["red","yellow","white","magenta","lime","aqua"]
-                   ttpfg = colorf[Math.floor(Math.random() * colorf.length)]
-
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
+colorf = ["red","yellow","white","magenta","lime","aqua"]
+ttpfg = colorf[Math.floor(Math.random() * colorf.length)]
 buffer = `https://pecundang.herokuapp.com/api/ttpcolor?teks=${q}&color=${ttpfg}`
 reply(wait())
 sendStickerUrl(from, buffer)
@@ -5371,24 +5370,23 @@ Fg.sendMessage(from, attp, sticker, {quoted: mek})
 limitAdd(sender, limit)
 break
 
-					case 'attp2':  
-                  if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-					if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
-                    reply(wait())
-                    F = q
-                    anu1 = await getBuffer(`https://lolhuman.herokuapp.com/api/attp?apikey=${lolkey}&text=${F}`)
-                    Fg.sendMessage(from, anu1, sticker, {quoted: mek})
-                    limitAdd(sender, limit)
-                    break
-
+case 'attp2':  
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
+reply(wait())
+F = q
+anu1 = await getBuffer(`https://lolhuman.herokuapp.com/api/attp?apikey=${lolkey}&text=${F}`)
+Fg.sendMessage(from, anu1, sticker, {quoted: mek})
+limitAdd(sender, limit)
+break
 
 case 'attp3':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-					if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
 buffer = `https://pecundang.herokuapp.com/api/attp?teks=${q}`
 reply(wait())
 sendStickerUrl(from, buffer)
@@ -5501,8 +5499,8 @@ case 'diamantes':
 case 'diamantes': 
 case 'bal':
 case 'balance':
- case 'dinero':
- case 'Coins':
+case 'dinero':
+case 'Coins':
 case 'Coin':
 if(!isVerify) return isUser()
   if (isBanned) return reply(banf())
@@ -5541,7 +5539,6 @@ diafg = `
 reply(diafg)
 }
 break
-
 
 case 'buyglimit':
 case 'buygcoin':
@@ -5589,7 +5586,6 @@ const tag2 = `${q.split(" ")[0].replace("@",'')}@s.whatsapp.net`
 givegame(tag2, gco, glimit)
 reply(`✅ GameCoins agregados al usuario`)
 break
-
 
 //******************** 》 GAME 《 ********************\\
 case  'tictactoe': 
@@ -5655,10 +5651,9 @@ gameAdd(sender, glimit)
 break
 
 case  'delttc':
-
 if(!isVerify) return isUser()
-                                         if (isBanned) return reply(banf())
-                                         //if (!isGroupAdmins && !isOwner) return reply(admin())
+if (isBanned) return reply(banf())
+//if (!isGroupAdmins && !isOwner) return reply(admin())
 if (!isGroup) return reply(group())
 if (fs.existsSync("./libreria/tictactoe/db/" + from + ".json")) {
 fs.unlinkSync("./libreria/tictactoe/db/" + from + ".json");
@@ -5667,7 +5662,7 @@ reply(`✅ Sesión de juego reiniciado`);
 reply(`No hay sesión en curso, 🛡️ Para iniciar uno escribe ${prefix}ttc`);
   }
 break
-               //-----  𝗝𝘂𝗲𝗴𝗼𝘀 𝗽𝗮𝗿𝗮 𝗴𝗮𝗻𝗮𝗿 𝗕𝗼𝘁𝗖𝗼𝗶𝗻𝘀--         
+//-----  𝗝𝘂𝗲𝗴𝗼𝘀 𝗽𝗮𝗿𝗮 𝗴𝗮𝗻𝗮𝗿 𝗕𝗼𝘁𝗖𝗼𝗶𝗻𝘀--         
 case 'math':
 case 'mate':
 case 'mates':
@@ -5723,7 +5718,6 @@ reply(`🗂️  *${args[0]}* No disponible!\n\n*🧮 Dificultades disponibles :*
 }
 gameAdd(sender, glimit)
 break
-
 
 case 'slot':
 case 'lucky':
@@ -5807,7 +5801,6 @@ break
 case 'lb': 
 case 'leaderboard':
 {
-
                 let top = '*──「 LEADERBOARD LEVEL 」──*\n\n'
                 let arrTop = []
                      var nom = 0
@@ -5878,7 +5871,7 @@ mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                  if (budy.includes(`Gracias bot`)) {
                   replyfg(`De nada 😊 estoy para ayudarte`)
                   }
-				//audios
+//audios
                   if (budy.startsWith(`Buenos días`)) {
         const aufg = fs.readFileSync('./src/mp3/2.mp3');
 		Fg.sendMessage(from, aufg, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -5891,14 +5884,10 @@ mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
         const aufg = fs.readFileSync('./src/mp3/4.mp3');
 		Fg.sendMessage(from, aufg, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
-
-                  //gif con sonido 
+//gif con sonido 
                   if (budy.startsWith(`Linda noche`)) {
         const gfso = fs.readFileSync('./src/mp4/1.mp4');
 		Fg.sendMessage(from, gfso, MessageType.video, {mimetype: Mimetype.gif,quoted : mek})
-		setTimeout( () => {
-		reply('_La leyenda dice que si le das_ *doble click* _al gif escucharas la voz del tipo en tu mente._')
-		}, 1000)
                   }
 
                   //fin gif con sonido 
