@@ -1292,10 +1292,10 @@ sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones 
 		 {buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}], 
 		{contextInfo: { mentionedJid: [sender]}} )
 **/
-sendButLok(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:imgth}, 
+sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:imgth}, 
 		[{buttonId:`${prefix}allmenu`,buttonText:{displayText:'⦙☰ MENU'},type:1}, 
 		 {buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}], 
-	   {contextInfo: { mentionedJid: [sender]}})
+	   {contextInfo: { mentionedJid: [sender]}} )
 break;
 
 case 'allmenu':
@@ -1307,7 +1307,8 @@ case 'allmenu':
         mnu2 = mnu1[Math.floor(Math.random() * mnu1.length)]
         imgth = fs.readFileSync(`./image/${mnu2}.jpg`)
         autorfg = `${sender.split("@")[0]}`
-sendButLocation(from, `${help(prefix, pushname, autorfg)}`, `*${fecha()}*\n▢ *Gansito_Revenge┃ᴮᴼᵀ*\n▢ *Total Hits* : ${reqcmd}\n▢ *Usuarios* : ${_user.length}`, {jpegThumbnail:imgth},
+sendButLocation(from, `${help(prefix, pushname, autorfg)}`, `*${fecha()}*\n▢ *Gansito_Revenge┃ᴮᴼᵀ*\n▢ *Total Hits* : ${reqcmd}\n▢ *Usuarios* : ${_user.length}`, 
+		{jpegThumbnail:imgth},
 
  [
 {buttonId:`${prefix}creador`,buttonText:{displayText:'♦️ CREADOR'},type:1},
