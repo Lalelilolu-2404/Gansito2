@@ -1263,10 +1263,12 @@ imageToBase64(res.data.url)
 .then(
 (ress) => {
 var bufx = Buffer.from(ress, 'base64')
+})
+})
 } catch (err) {
 bufx = Fg.readFileSync(`./image/fake.jpg`)
 }  
-		    
+
         lvlh = getLevelingLevel(sender)
        infost = await Fg.getStatus(`${sender.split('@')[0]}@c.us`)
 	  infost = infost.status == 401 ? '' : infost.status
