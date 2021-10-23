@@ -1266,7 +1266,7 @@ var bufx = Buffer.from(ress, 'base64')
 })
 })
 } catch (err) {
-bufx = Fg.readFileSync(`./image/fake.jpg`)
+var bufx = Fg.readFileSync(`./image/fake.jpg`)
 }  
 
         lvlh = getLevelingLevel(sender)
