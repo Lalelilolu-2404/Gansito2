@@ -1258,13 +1258,8 @@ break
 //        mnu2 = mnu1[Math.floor(Math.random() * mnu1.length)]
 //        imgth = fs.readFileSync(`./image/${mnu2}.jpg`)
 try {
-axios.get('https://akaneko-api.herokuapp.com/api/wallpapers').then(res => {
-imageToBase64(res.data.url)
-.then(
-(ress) => {
-var bufx = Buffer.from(ress, 'base64')
-})
-})
+anux = await axios.get('https://akaneko-api.herokuapp.com/api/wallpapers')
+var bufx = await getBuffer(anux.data.url)
 } catch (err) {
 var bufx = Fg.readFileSync(`./image/fake.jpg`)
 }  
