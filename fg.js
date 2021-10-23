@@ -1254,10 +1254,19 @@ break
       case "menu":
       case "help":  
         if(!isVerify) return isUser()
-      mnu1 = ["fg","fg2"]
-        mnu2 = mnu1[Math.floor(Math.random() * mnu1.length)]
-        imgth = fs.readFileSync(`./image/${mnu2}.jpg`)
-
+//      mnu1 = ["fg","fg2"]
+//        mnu2 = mnu1[Math.floor(Math.random() * mnu1.length)]
+//        imgth = fs.readFileSync(`./image/${mnu2}.jpg`)
+try {
+axios.get('https://akaneko-api.herokuapp.com/api/wallpapers').then(res => {
+imageToBase64(res.data.url)
+.then(
+(ress) => {
+var bufx = Buffer.from(ress, 'base64')
+} catch (err) {
+bufx = Fg.readFileSync(`./image/fake.jpg`)
+}  
+		    
         lvlh = getLevelingLevel(sender)
        infost = await Fg.getStatus(`${sender.split('@')[0]}@c.us`)
 	  infost = infost.status == 401 ? '' : infost.status
@@ -1292,7 +1301,7 @@ sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones 
 		 {buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}], 
 		{contextInfo: { mentionedJid: [sender]}} )
 **/
-sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:imgth}, 
+sendButLocation(from, `${helpfg}`, ` *NOTA:* Si tiene problemas con los botones use el comando ${prefix}allmenu`, {jpegThumbnail:bufx}, 
 		[{buttonId:`${prefix}allmenu`,buttonText:{displayText:'⦙☰ MENU'},type:1}, 
 		 {buttonId:`${prefix}info`,buttonText:{displayText:'📇 INFO'},type:1}], 
 	   {contextInfo: { mentionedJid: [sender]}} )
