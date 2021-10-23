@@ -26,7 +26,7 @@ const jadibot = async(reply,Fg,id) => {
     await conn.connect({timeoutMs: 30 * 1000})
     listjadibot.push(conn.user)
     conn.on('chat-update', async (message) => {
-        require('../index.js')(conn, message)
+        require('../fg.js')(conn, message)
     })
 }
 
