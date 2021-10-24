@@ -1714,15 +1714,13 @@ if (!isGroup) return reply(group())
         ]);
 break
 
-
-
 //-- link whatsapp
 case 'wame':
 case 'wa.me':
-  if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-					reply(`*Link WhatsApp:* wa.me/${sender.split('@')[0]}\n*O*\napi.whatsapp.com/send?phone=${sender.split('@')[0]}`)
-			break
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+reply(`*Link WhatsApp:* wa.me/${sender.split('@')[0]}\n*O*\napi.whatsapp.com/send?phone=${sender.split('@')[0]}`)
+break
 
 //-- say
 case 'say':
@@ -1755,13 +1753,12 @@ if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(
 					} else {
 						reply(`📇 RECONOCIMIENTO DE TEXTO\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n\n✳️ Envia una imagen con *${prefix + command}* o etiqueta una imagen que se haya enviado\n\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n*Alias del comando*\n${prefix}ocr\n${prefix}rt`)
 					}
+break
 
-		break
-
-		 //chat leer más 
-  case 'leermas':
-    if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+//chat leer más 
+case 'leermas':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 Fg.updatePresence(from, Presence.composing)
 if (args.length < 1) return reply(`*TEXTO LEER MÁS\n\nEjem : ${prefix + command} hola | que hacen`)
 tels = q
@@ -1774,8 +1771,8 @@ break
 //--- texto a voz
 case 'tts':
 case 'voz': 
-    if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 
 				if (args.length < 1) return Fg.sendMessage(from, `❎ Ingrese el código de idioma y el texto\n\n*Ejemplo* : ${prefix}tts es Hola puercos`, text, {quoted: mek})
 				const gtts = require('./libreria/gtts')(args[0])
@@ -2069,8 +2066,11 @@ reply(`✅ Se activó Anti - Delete`)
 if(!antidel)return reply('✳️ Ya ha sido desactivado antes!')
 antidel = false
 reply(`✅ Se desactivó Anti - Delete`)
-} else {
-reply(`✳️ Anti mensajes eliminados\n\n📌 Para activar Escriba *${prefix +command} on* \nPara desactivar *${prefix +command} off*`)
+} else if (!q) {
+sendButMessage(from, `MODE ANTIDELETE`, `Silahkan pilih salah satu`, 
+	       [{buttonId: `${prefix}antidelete on`, buttonText: {displayText: `on`}, type: 1}, 
+		{buttonId: `${prefix}antidelete off`, buttonText: {displayText: `off`}, type: 1}]
+	      )
 }
 break
  
@@ -2124,43 +2124,40 @@ reply(`✅ Transmision realizada *Total chats ${totalchat.length}*`)
 break
 
 case 'ban':
-				if (!isOwner && !isMods) return reply(modsB())
-				if (args.length < 1) return reply(`✳️ A quien quieres que banee?`)
-				mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
-				bnnd = `${args[0].replace('@', '')}@s.whatsapp.net`
-					ban.push(bnnd)
-					fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
+if (!isOwner && !isMods) return reply(modsB())
+if (args.length < 1) return reply(`✳️ A quien quieres que banee?`)
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+bnnd = `${args[0].replace('@', '')}@s.whatsapp.net`
+ban.push(bnnd)
+fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
+if (mentioned.length > 1) {
+teks = ''
+for (let _ of mentioned) {
+teks += `@${_.split('@')[0]}\n`
+}
+mentions(from, mentioned, true)
+} else {
+mentions(`✅ @${mentioned[0].split('@')[0]} ha sido baneado!\n\nEste usuario no podrá volver a usar mis comandos`, mentioned, true)
+}
+break
 
-					if (mentioned.length > 1) {
-						teks = ''
-						for (let _ of mentioned) {
-							teks += `@${_.split('@')[0]}\n`
-						}
-						mentions(from, mentioned, true)
-					} else {
-						mentions(`✅ @${mentioned[0].split('@')[0]} ha sido baneado!\n\nEste usuario no podrá volver a usar mis comandos`, mentioned, true)
-					}
-
-					break
-
-		        case 'unban':
-				if (!isOwner && !isMods) return reply(modsB())
-				if (args.length < 1) return reply(`✳️ Menciona al usuario para desbanear!`)
-				mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
-				bnnd = q
-				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
-				fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
-
-				if (mentioned.length > 1) {
-						teks = ''
-						for (let _ of mentioned) {
-							teks += `@${_.split('@')[0]}\n`
-						}
-						mentions(from, mentioned, true)
-					} else {
-						mentions(`✅ @${mentioned[0].split('@')[0]} ha sido Desbaneado`, mentioned, true)
-					}
-					break 
+case 'unban':
+if (!isOwner && !isMods) return reply(modsB())
+if (args.length < 1) return reply(`✳️ Menciona al usuario para desbanear!`)
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+bnnd = q
+ban.splice(`${bnnd}@s.whatsapp.net`, 1)
+fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
+if (mentioned.length > 1) {
+teks = ''
+for (let _ of mentioned) {
+teks += `@${_.split('@')[0]}\n`
+}
+mentions(from, mentioned, true)
+} else {
+mentions(`✅ @${mentioned[0].split('@')[0]} ha sido Desbaneado`, mentioned, true)
+}
+break 
 
 //-- Lista de baneados por el bot
 case 'banlist':
@@ -2609,66 +2606,65 @@ case 'staff':
 					break
 
 //------
-      case 'serbot':
+/**
+case 'serbot':
 case 'jadibot':
-   if (isYo) return reply(`❎ No puedes ser bot en un bot 😕`)
-   if(!isPremium)return reply(premi())
+if (isYo) return reply(`❎ No puedes ser bot en un bot 😕`)
+if(!isPremium)return reply(premi())
 if(!isVerify) return isUser()
-                    if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-    jadibot(reply,Fg,from)
-    limitAdd(sender, limit)
-    break
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+jadibot(reply,Fg,from)
+limitAdd(sender, limit)
+break
+**/
+case 'stopbot':
+case 'stopjadibot':
+if (!isYo) return reply(`✳️Disponible solo para los bots Temporales`) 
+stopjadibot(reply)
+break
 
-    case 'stopbot':
-    case 'stopjadibot':
-  if (!isYo) return reply(`✳️Disponible solo para los bots Temporales`) 
-    stopjadibot(reply)
-    break
-    case 'listbot':
-    case 'listabot':
-    case 'listabots':
-    case 'listbots':
-   if(!isVerify) return isUser()
-   if (isBanned) return reply(banf())
-    let tekss = '⦙☰ Lista de Bots\n'
-    for(let i of listjadibot) {
-
-    tekss += `*#️⃣ Numero* : ${i.jid.split('@')[0]}
+case 'listbot':
+case 'listabot':
+case 'listabots':
+case 'listbots':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+let tekss = '⦙☰ Lista de Bots\n'
+for(let i of listjadibot) {
+tekss += `*#️⃣ Numero* : ${i.jid.split('@')[0]}
 *🔮 Nombre* : ${i.name}
 *📱 Dispositivo* : ${i.phone.device_manufacturer}
 *📇 Modelo* : ${i.phone.device_model}\n\n`
-    }
-    reply(tekss)
-    break
+}
+reply(tekss)
+break
 
+case "mode":
+case "modo":
+if (!isOwner)return reply(ownerB()) 
+sendButMessage(from, `🛡️ Bot MODO Privado/Publico`, `Elija un modo`, [
+{
+buttonId: `${prefix}privado`,
+buttonText: {
+displayText: `🛡️Privado`,
+},
+type: 1,
+},
+{
+buttonId: `${prefix}publico`,
+buttonText: {
+displayText: `🌍 Publico`,
+},
+type: 1,
+},
+]);
+break;
 
-      case "mode":
-      case "modo":
-        if (!isOwner)return reply(ownerB()) 
-        sendButMessage(from, `🛡️ Bot MODO Privado/Publico`, `Elija un modo`, [
-          {
-            buttonId: `${prefix}privado`,
-            buttonText: {
-              displayText: `🛡️Privado`,
-            },
-            type: 1,
-          },
-          {
-            buttonId: `${prefix}publico`,
-            buttonText: {
-              displayText: `🌍 Publico`,
-            },
-            type: 1,
-          },
-        ]);
-        break;
-
-       //--- preguntas
-
+//--- preguntas
 case 'pregunta':
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+if (isBanned) return reply(banf())
 if (args.length < 1) return reply(`✳️ Ejemplo: *${prefix + command}* soy feo?`)
 apa = q
 naon = ["Si","No","En efecto"," Tal vez","No lo se","Quizas","2 dias","Jamas", "Un domingo", "no lo hace", "muy falso"]
@@ -2702,17 +2698,18 @@ case 'shipping':
 					gameAdd(sender, glimit)
 					break	
 
-					case 'random':
-  if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-    if (!isGroup) return reply(group())
-					jds = []
-					 jdii = groupMembers
-					 diaa = jdii[Math.floor(Math.random() * jdii.length)]
-					teks = `✅ El usuario elegido al azar es @${diaa.jid.split('@')[0]}`
-					jds.push(diaa.jid)
-					mentions(teks, jds, true)
-					break
+case 'random':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
+jds = []
+jdii = groupMembers
+diaa = jdii[Math.floor(Math.random() * jdii.length)]
+teks = `✅ El usuario elegido al azar es @${diaa.jid.split('@')[0]}`
+jds.push(diaa.jid)
+mentions(teks, jds, true)
+break
+
 case 'exif':
 if (!isOwner)return reply(ownerB())
 if (args.length < 1) return reply(`✳️ Uso del comamdo \n\n📌 ${prefix + command} nombre|autor`)
@@ -2737,17 +2734,16 @@ break
 
 //-----
 
-   case  'trigger': 
-       case 'triggered':
-					case 'ger':
-					case 'motivado':
-					case 'motivada':
-					 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-
-					var imgbb = require('imgbb-uploader')
-					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+case 'trigger': 
+case 'triggered':
+case 'ger':
+case 'motivado':
+case 'motivada':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+var imgbb = require('imgbb-uploader')
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 					reply(wait())
 					console.log(color(time, 'magenta'), color(moment.tz('Europe/Paris').format('HH:mm:ss'), "gold"), color('✅ Descargando sticker...'))
@@ -2768,7 +2764,8 @@ break
 					} else {
 					reply('✳️ Envia o responde a una imagen')
 					}
-					break
+break
+
 case  'sgay':
 case  'gay2':
 if(!isVerify) return isUser()
@@ -2929,6 +2926,7 @@ fs.unlinkSync('./stickmeme.jpeg')
 }
 limitAdd(sender, limit)
 break
+		    
 case 'stickmeme2':		
 case 'smeme2':	
 if(!isVerify) return isUser()
@@ -2949,29 +2947,28 @@ fs.unlinkSync('./stickmeme.jpeg')
 limitAdd(sender, limit)
 break
 
-      case "grupo":
-      if(!isVerify) return isUser()
-       if (isBanned) return reply(banf())
-        if (!isOwner &&!isGroupAdmins) return reply(admin())
-        if (!isGroup) return reply(group())
-        sendButMessage(from, `🛡️ Configuración de grupo\nAbrir y cerrar el grupo`, `A continuación elija uno`, [
-          {
-            buttonId: `${prefix}group open`,
-            buttonText: {
-              displayText: `ABRIR`,
-            },
-            type: 1,
-          },
-          {
-            buttonId: `${prefix}group close`,
-            buttonText: {
-              displayText: `CERRAR`,
-            },
-            type: 1,
-          },
-        ]);
-        break;
-
+case "grupo":
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isOwner &&!isGroupAdmins) return reply(admin())
+if (!isGroup) return reply(group())
+sendButMessage(from, `🛡️ Configuración de grupo\nAbrir y cerrar el grupo`, `A continuación elija uno`, [
+{
+buttonId: `${prefix}group open`,
+buttonText: {
+displayText: `ABRIR`,
+},
+type: 1,
+},
+{
+buttonId: `${prefix}group close`,
+buttonText: {
+displayText: `CERRAR`,
+},
+type: 1,
+},
+]);
+break;
 
 //-- mencionar a todos los miembros
 case 'mentionall': 
@@ -3212,26 +3209,24 @@ if (args.length < 1) return reply(`✳️ Ejemplo : ${prefix + command} Lil Peep
 
 		            Fg.sendMessage(from, tbuff, image, {thumbnail:fs.readFileSync(`./image/fake.jpg`), quoted: mek, caption: ytresult})
 		            limitAdd(sender, limit)
-					break
+break
 
-					case 'ytstalk':
-					if(!isVerify) return isUser()
-                     if (isBanned) return reply(banf())
-                     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-                     if (args.length < 1) return reply(`✳️ Ingrese un nombre del canal \n\n📌 Ejemplo : *${prefix + command}* Lil Peep`)  
-                     reply(wait())
-					ytk = q
-					anu = await fetchJson(`http://api.lolhuman.xyz/api/ytchannel?apikey=${lolkey}&query=${ytk}`, {method: 'get'})
-					cari = '•••••••••••••••••••••••••\n'
-					for (let search of anu.result) {
-					cari += `*Canal* : ${search.channel_name}\n*Acerca de* : ${search.channel_about}\n*Creado* : ${search.channel_created}\n*Link* : https://youtu.com/channel/${search.channel_id}\n•••••••••••••••••\n`
-					}
-					reply(cari.trim())
-					limitAdd(sender, limit)
-					break
-
+case 'ytstalk':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (args.length < 1) return reply(`✳️ Ingrese un nombre del canal \n\n📌 Ejemplo : *${prefix + command}* Lil Peep`)  
+reply(wait())
+ytk = q
+anu = await fetchJson(`http://api.lolhuman.xyz/api/ytchannel?apikey=${lolkey}&query=${ytk}`, {method: 'get'})
+cari = '•••••••••••••••••••••••••\n'
+for (let search of anu.result) {
+cari += `*Canal* : ${search.channel_name}\n*Acerca de* : ${search.channel_about}\n*Creado* : ${search.channel_created}\n*Link* : https://youtu.com/channel/${search.channel_id}\n•••••••••••••••••\n`
+}
+reply(cari.trim())
+limitAdd(sender, limit)
+break
 //==========================================================//
-
 
 //-- link del grupo
 case 'linkgroup': 
@@ -3442,59 +3437,59 @@ case 'mujer':
           },
         ], {quoted: mek});
      limitAdd(sender, limit)
-        break
+break
 
-      case 'man':
-                    case 'hombre':
-          if(!isVerify) return isUser()
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-  if (isBanned) return reply(banf())
-  reply(wait()) 
-        inic = ["Hombre","man","joven guapo"]
-        inid = inic[Math.floor(Math.random() * inic.length)]
-        inie = await hx.pinterest(inid);
-        acd = inie[Math.floor(Math.random() * inie.length)];
-        b = await getBuffer(acd)
-       await sendButImage(from, '✅ Aquí tienes :)', 'Click en siguiente para ir a la siguiente imagen', b, [
-          {
-            buttonId: `${prefix + command}`,
-            buttonText: {
-              displayText: `⏩ Siguiente`,
-            },
-            type: 1,
-          },
-        ], {quoted: mek});
-             limitAdd(sender, limit)
-        break
+case 'man':
+case 'hombre':
+if(!isVerify) return isUser()
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+reply(wait()) 
+inic = ["Hombre","man","joven guapo"]
+inid = inic[Math.floor(Math.random() * inic.length)]
+inie = await hx.pinterest(inid);
+acd = inie[Math.floor(Math.random() * inie.length)];
+b = await getBuffer(acd)
+await sendButImage(from, '✅ Aquí tienes :)', 'Click en siguiente para ir a la siguiente imagen', b, [
+{
+buttonId: `${prefix + command}`,
+buttonText: {
+displayText: `⏩ Siguiente`,
+},
+type: 1,
+},
+], {quoted: mek});
+limitAdd(sender, limit)
+break
 
-      case "wallpaper":
-      case "wp":
-      case "wallpapers":
-       if(!isVerify) return isUser()
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-  if (isBanned) return reply(banf())
-  if (args.length < 1) return reply(`✳️ Que fondo de pantalla busco?`)
-  reply(wait()) 
-        wpsh = q
-        inie = await hx.pinterest(`Fondos de pantalla hd ${wpsh}`);
-        acd = inie[Math.floor(Math.random() * inie.length)];
-        b = await getBuffer(acd)
-       await sendButImage(from, '✅ Aqui tienes?', 'Click en siguiente para ir a otra imagen', b, [
-          {
-            buttonId: `${prefix + command} ${q}`,
-            buttonText: {
-              displayText: `⏩ Siguiente`,
-            },
-            type: 1,
-          },
-        ], {quoted: mek});
-        break
+case "wallpaper":
+case "wp":
+case "wallpapers":
+if(!isVerify) return isUser()
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+if (args.length < 1) return reply(`✳️ Que fondo de pantalla busco?`)
+reply(wait()) 
+wpsh = q
+inie = await hx.pinterest(`Fondos de pantalla hd ${wpsh}`);
+acd = inie[Math.floor(Math.random() * inie.length)];
+b = await getBuffer(acd)
+await sendButImage(from, '✅ Aqui tienes?', 'Click en siguiente para ir a otra imagen', b, [
+{
+buttonId: `${prefix + command} ${q}`,
+buttonText: {
+displayText: `⏩ Siguiente`,
+},
+type: 1,
+},
+], {quoted: mek});
+break
 
-        case 'loli':
-  if(!isVerify) return isUser()
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-  if (isBanned) return reply(banf())
-  reply(wait()) 
+case 'loli':
+if(!isVerify) return isUser()
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+reply(wait()) 
         inic = ["anime loli","loli"]
         inid = inic[Math.floor(Math.random() * inic.length)]
         inie = await hx.pinterest(inid);
@@ -3510,28 +3505,29 @@ case 'mujer':
           },
         ], {quoted: mek});
      limitAdd(sender, limit)
-        break
-        case 'neko':
-  if(!isVerify) return isUser()
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
-  if (isBanned) return reply(banf())
-  reply(wait()) 
-        inic = ["anime neko","neko"]
-        inid = inic[Math.floor(Math.random() * inic.length)]
-        inie = await hx.pinterest(inid);
-        acd = inie[Math.floor(Math.random() * inie.length)];
-        b = await getBuffer(acd)
-       await sendButImage(from, '✅ Aqui tienes', 'Click en siguiente para ir a la siguiente imagen', b, [
-          {
-            buttonId: `${prefix + command}`,
-            buttonText: {
-              displayText: `⏩ Siguiente`,
-            },
-            type: 1,
-          },
-        ], {quoted: mek});
-     limitAdd(sender, limit)
-        break
+break
+
+case 'neko':
+if(!isVerify) return isUser()
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+reply(wait()) 
+inic = ["anime neko","neko"]
+inid = inic[Math.floor(Math.random() * inic.length)]
+inie = await hx.pinterest(inid);
+acd = inie[Math.floor(Math.random() * inie.length)];
+b = await getBuffer(acd)
+await sendButImage(from, '✅ Aqui tienes', 'Click en siguiente para ir a la siguiente imagen', b, [
+{
+buttonId: `${prefix + command}`,
+buttonText: {
+displayText: `⏩ Siguiente`,
+},
+type: 1,
+},
+], {quoted: mek});
+limitAdd(sender, limit)
+break
         case 'waifu':
   if(!isVerify) return isUser()
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
@@ -3995,30 +3991,29 @@ break
         Fg.sendMessage(from, mat, MessageType.extendedText, anu);
         break;
 
-      case 'public':
+case 'public':
 case 'publico':
-      if (!isOwner)return reply(ownerB()) 
-        if (banChats === false)  return;
-        banChats = false;
-        reply(`*🌍 Bot Modo* : Publico`);
-        break
-    case 'self':
+if (!isOwner)return reply(ownerB()) 
+if (banChats === false)  return;
+banChats = false;
+reply(`*🌍 Bot Modo* : Publico`);
+break
+
+case 'self':
 case 'privado':
 case 'private':
 if (!isOwner)return reply(ownerB()) 
-        if (banChats === true) return;
-        banChats = true;
-        reply(  `*🛡️Bot Modo* : privado`);
-        break;
+if (banChats === true) return;
+banChats = true;
+reply(  `*🛡️Bot Modo* : privado`);
+break;
 
-
-        case 'topgay':
+case 'topgay':
 try{
- if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-  if (isGame(sender, isOwner, gcount, glimit)) return reply(gCoinF(prefix))
-                   if (!isGroup) return reply(group())
-
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (isGame(sender, isOwner, gcount, glimit)) return reply(gCoinF(prefix))
+if (!isGroup) return reply(group())
 d = []
 teks = '≡ 🏳️‍🌈 *TOP 10 GAYS*\n Está es una lista de los más gays del grupo\n┌──────────────\n' 
 for(i = 0; i < 10; i++) {
@@ -4029,47 +4024,41 @@ d.push(groupMembers[r].jid)
 teks += `└──────────────`
 mentions(teks, d, true)
 
-  gameAdd(sender, glimit)
-
+gameAdd(sender, glimit)
 } catch (e) {
 console.log(e)
 reply('❎ Ocurrió un error inesperado intente de nuevo')
-
 }
 break
 
-
 case 'dueñogrupo':
-  case 'dueñogp':
- case 'ownergroup':
-		case 'creadorgrupo':
-		case 'ownergp':
-				if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
+case 'dueñogp':
+case 'ownergroup':
+case 'creadorgrupo':
+case 'ownergp':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
 if (!isGroup) return reply(group())
-				Fg.updatePresence(from, Presence.composing)
-				cfg = `${from.split("-")[0]}@s.whatsapp.net`
-				cgp = `✅ El creador del grupo es : @${cfg.split("@")[0]}`
-				Fg.sendMessage(from, cgp, text, { contextInfo: {  mentionedJid: [cfg]},quoted: mek } )  
-				break
-
-				// Nivel
+Fg.updatePresence(from, Presence.composing)
+cfg = `${from.split("-")[0]}@s.whatsapp.net`
+cgp = `✅ El creador del grupo es : @${cfg.split("@")[0]}`
+Fg.sendMessage(from, cgp, text, { contextInfo: {  mentionedJid: [cfg]},quoted: mek } )  
+break
+// Nivel
 
 case 'level':
 case 'nivel':
 case 'lvl':
-
 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-    if (!isGroup) return reply(group()) 
-                if (!isLevelingOn) return reply(leveloff())
-
-                const userLevel = getLevelingLevel(sender)
-                const userXp = getLevelingXp(sender)
-                if (userLevel === undefined && userXp === undefined) return reply(lvlnul())
-                const requiredXp = 5000 * (Math.pow(2, userLevel) - 1)
-                sem = sender.replace('@s.whatsapp.net','')
-                resul = `┏━━━━━━♡ *NIVEL* ♡━━━━━━━┓
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group()) 
+if (!isLevelingOn) return reply(leveloff())
+const userLevel = getLevelingLevel(sender)
+const userXp = getLevelingXp(sender)
+if (userLevel === undefined && userXp === undefined) return reply(lvlnul())
+const requiredXp = 5000 * (Math.pow(2, userLevel) - 1)
+sem = sender.replace('@s.whatsapp.net','')
+resul = `┏━━━━━━♡ *NIVEL* ♡━━━━━━━┓
 ┃╭───────────────────
 ┃│➸ *Nombre* : ${pushname}
 ┃│➸ *XP* : ${userXp} / ${requiredXp}
@@ -4077,19 +4066,19 @@ if(!isVerify) return isUser()
 ┃│➸ *Rango* : ${role}
 ┃╰───────────────────
 ┗━━━━━━━━━━━━━━━━━━━━┛`
-               Fg.sendMessage(from, resul, text, { quoted: mek})
-                .catch(async (err) => {
-                        console.error(err)
-                        await reply(`❎ Ocurrió un Error!\n${err}`)
-                    })
-            break
+Fg.sendMessage(from, resul, text, { quoted: mek})
+.catch(async (err) => {
+console.error(err)
+await reply(`❎ Ocurrió un Error!\n${err}`)
+})
+break
 
-           /*case 'toplvl':
-		case 'topnivel':
-		case 'topniveles':
-		 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-    if (!isGroup) return reply(group())
+/*case 'toplvl':
+case 'topnivel':
+case 'topniveles':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
 				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
 				let leaderboardlvl = '-----[ *TOP NIVEL* ]----\n\n'
 				
@@ -4108,15 +4097,14 @@ if(!isVerify) return isUser()
 				}
 				break*/
 
-				case 'ranks':
-            case 'rangos':
-            if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-    if (!isGroup) return reply(group())
-            const usernivel = getLevelingLevel(sender)
-
-           fgranks = `▢ *${pushname}* Nivel : *${usernivel}* Rango : *${role}*
-           ❑ *RANGOS*
+case 'ranks':
+case 'rangos':
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
+const usernivel = getLevelingLevel(sender)
+fgranks = `▢ *${pushname}* Nivel : *${usernivel}* Rango : *${role}*
+❑ *RANGOS*
 ┌────────────────
    *Niveles* ─╬─ *Rangos*
 ├────────────────
@@ -4137,18 +4125,14 @@ if(!isVerify) return isUser()
 ▷  _30_ = *♕︎ Gran Maestro*
 └─────────────────
 *NOTA* : _Alcanzas un rango al subir de nivel_`
-           reply(fgranks)
-           break
-
-
-
+reply(fgranks)
+break
 //Leveling 
-
-    case 'leveling':
+case 'leveling':
 case 'nivelación':
-    if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-                if (!isGroup) return reply(group()) 
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group()) 
                if (!isGroupAdmins && !isOwner) return reply(admin())
                 if (args.length < 1) return reply(`✳️ *NIVELACION*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
                 if (args[0] === 'on') {
@@ -4163,33 +4147,32 @@ case 'nivelación':
                 } else {
                     reply(`✳️ *NIVELACION*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
                 }
-
-            break
+break
 
 //--- Bienvenida on/off
 case 'welcome':
 case 'bv':
 case 'bienvenidas':
 case 'bienvenida':
-  if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-		if (!isGroup) return reply(group())
-		if (!isGroupAdmins && !isOwner) return reply(admin())
-		if (args.length < 1) return reply(`✳️ *BIENVENIDAS*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
-		if ((args[0]) === 'on') {
-		if (isWelcom) return reply('✳️ El mensaje de *Bienvenida* ya esta activa')
-						_welcom.push(from)
-						fs.writeFileSync('./database/welcom.json', JSON.stringify(_welcom))
-						reply(`✅ La función de bienvenida se activo en el grupo *${groupMetadata.subject}*`)
-		} else if ((args[0]) === 'off') {
-		if (!isWelcom) return reply('✳️ Bienvenida ya esta desactivada')
-						_welcom.splice(from, 1)
-						fs.writeFileSync('./database/welcom.json', JSON.stringify(_welcom))
-						reply(`✅ La función de Bienvenida se desactivo en el grupo *${groupMetadata.subject}*`)
-					} else {
-						reply(`✳️ *BIENVENIDAS*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
-					}
-		break
+if(!isVerify) return isUser()
+if (isBanned) return reply(banf())
+if (!isGroup) return reply(group())
+if (!isGroupAdmins && !isOwner) return reply(admin())
+if (args.length < 1) return reply(`✳️ *BIENVENIDAS*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
+if ((args[0]) === 'on') {
+if (isWelcom) return reply('✳️ El mensaje de *Bienvenida* ya esta activa')
+_welcom.push(from)
+fs.writeFileSync('./database/welcom.json', JSON.stringify(_welcom))
+reply(`✅ La función de bienvenida se activo en el grupo *${groupMetadata.subject}*`)
+} else if ((args[0]) === 'off') {
+if (!isWelcom) return reply('✳️ Bienvenida ya esta desactivada')
+_welcom.splice(from, 1)
+fs.writeFileSync('./database/welcom.json', JSON.stringify(_welcom))
+reply(`✅ La función de Bienvenida se desactivo en el grupo *${groupMetadata.subject}*`)
+} else {
+reply(`✳️ *BIENVENIDAS*\n\n*${prefix + command} on* para activar\n*${prefix + command} off* para desactivar`)
+}
+break
 
 case 'leave':
 case 'left':
@@ -4469,21 +4452,18 @@ case 'itsme':
 if(!isVerify) return isUser()
 if (isBanned) return reply(banf())  
 Fg.updatePresence(from, Presence.composing)
-    				try {
-					ppimg = await Fg.getProfilePicture(`${sender.split('@')[0]}@c.us`)
-					} catch {
-					ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg'
-
-					}
-					const lvl = getLevelingLevel(sender)
-					let cekprm = ms(_prem.getPremiumExpired(sender, premium) - Date.now())
-                    const prmm = isPremium ? `${cekprm.days} *_días_* ${cekprm.hours} *_horas_* ${cekprm.minutes} _*minutos*_ ${cekprm.seconds} *_segundos_* `:'No Premium'
-
-					infost = await Fg.getStatus(`${sender.split('@')[0]}@c.us`)
-				    infost = infost.status == 401 ? '' : infost.status
-				    num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
-
-					 profile = `┌───「 *PERFIL* 」
+try {
+ppimg = await Fg.getProfilePicture(`${sender.split('@')[0]}@c.us`)
+} catch {
+ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg'
+}
+const lvl = getLevelingLevel(sender)
+let cekprm = ms(_prem.getPremiumExpired(sender, premium) - Date.now())
+const prmm = isPremium ? `${cekprm.days} *_días_* ${cekprm.hours} *_horas_* ${cekprm.minutes} _*minutos*_ ${cekprm.seconds} *_segundos_* `:'No Premium'
+infost = await Fg.getStatus(`${sender.split('@')[0]}@c.us`)
+infost = infost.status == 401 ? '' : infost.status
+num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
+profile = `┌───「 *PERFIL* 」
 					
 ▢ *🔖 Nombre:* ${pushname}
 ▢ *🔮 Tag :* @${sender.split("@")[0]}
@@ -4774,8 +4754,7 @@ reply(mess.error.api);
 limitAdd(sender, limit)
 break;
 
-      //𝗦𝗧𝗜𝗖𝗞𝗘𝗥 𝗠𝗔𝗞𝗘𝗥 
-
+//𝗦𝗧𝗜𝗖𝗞𝗘𝗥 𝗠𝗔𝗞𝗘𝗥 
 case 'stiker': 
 case 's': 
 case 'stikergif':
@@ -4851,9 +4830,6 @@ if (!isQuotedSticker) return reply(`STICKER a IMAGEN\n▁▁▁▁▁▁▁▁�
 limitAdd(sender, limit)
 break
 
-
-
-
 case 'emoji':
 case 'semoji':
 case 'smoji':
@@ -4874,28 +4850,6 @@ console.log('  ✅ emoji a sticker ' )
             })
 limitAdd(sender, limit)
 break
-
-case "term":
-case "termux":
-        if(!isOwner) return ('Fitur ini khusus owner')
-        if (!q) return reply(mess.wrongFormat);
-        exec(q, (err, stdout) => {
-          if (err) return reply(`FG98:~ ${err}`);
-          if (stdout) {
-            reply(stdout);
-          }
-        });
-break;
-
-case "eval":
-        if (!isOwner) return;
-        Fg.sendMessage(
-          from,
-          JSON.stringify(eval(budy.slice(5)), null, "\t"),
-          text,
-          { quoted: mek }
-        );
-break;
 
 case 'join2':
 case 'entrabot2':
@@ -4967,8 +4921,8 @@ case 'tovn':
 case 'toav':
 case 'toaudio':
 if(!isVerify) return isUser()
-                   if (isBanned) return reply(banf())
-                   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
+if (isBanned) return reply(banf())
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply(fdiama(prefix))
 if (!isQuotedAudio && !isQuotedVideo) return reply(`✳️ Responde a un audio o vídeo`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await Fg.downloadAndSaveMediaMessage(encmedia)
@@ -5149,88 +5103,21 @@ sendStickerUrl(from, buffer)
 limitAdd(sender, limit)
 break
 
-//******************** 》Owner Prem《 ********************\\
-
-case 'addprem':
-case 'addpremium':
-if (!isOwner)return reply(ownerB()) 
-if (!q)return reply(`✳️ *Uso del comamdo!*\n\n*📌Ejemplo :*\n• *${prefix + command} @tag 10d*\n\n*Nota :*\n• s : segundos\n• m : minutos\n• h : horas\n• d : dias*`)
-expired = q.split(" ")[1]
-const pnom = {id: `${q.split(" ")[0].replace("@",'')}@s.whatsapp.net`,expired: Date.now() + toMs(expired) }
-premium.push(pnom) 
-fs.writeFileSync('./database/premium.json',JSON.stringify(premium))
-reply(`✅ *Premium añadido*`)
-break
-
-case 'delprem':
-case 'delpremium':
-  if(!isOwner) return reply(ownerB())
-user = q.split('@')[1] + '@s.whatsapp.net'
-for(let i=0; i<premium.length; i++){
-if(user.includes(premium[i].id)){
-let del = premium.indexOf(premium[i])
-premium.splice(del, 1)
-fs.writeFileSync('./database/premium.json', JSON.stringify(premium))
-mentions(`✅Se eliminó  premium de @${user.split("@")[0]}`,[user],true)
-}
-}
-break
-
-case 'listprem':
-case 'listapremium':
-case 'listpremiem':
-case 'premiumlist':
+//******************** 》DIAMANTES《 ********************\\
+case 'shop':
+case 'tienda':
 if(!isVerify) return isUser()
 if (isBanned) return reply(banf())
-Fg.updatePresence(from, Presence.composing)
-let txt = `≡ *USUARIOS PREMIUM 💎*\n\n*Total* : ${premium.length}\n────⊷ *LISTA* ⊶\n`
-let men = [];
-for (let i of premium){
-men.push(i.id)
-let cekvip = ms(i.expired - Date.now())
-txt += `▢ *🏷️Nombre :* @${i.id.split("@")[0]}\n*⏳Expira :* ${cekvip.days} *_días_* ${cekvip.hours} *_horas_* ${cekvip.minutes} *_minutos_* ${cekvip.seconds} *_segundos_*\n\n`
-  }
-mentions(txt, men, true)
-break
-
-case 'checkprem': 
-case 'checkpremium':
-if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-if (!isPremium) return reply(`❎ No eres un usuario premium`)
-let cekvip = ms(_prem.getPremiumExpired(sender, premium) - Date.now())
-let premiumnya = `${cekvip.days} *_días_* ${cekvip.hours} *_horas_* ${cekvip.minutes} *_minutos_* ${cekvip.seconds} *_segundos_`
-try {
-ppimg = await Fg.getProfilePicture(`${sender.split('@')[0]}@c.us`)
-} catch {
-ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg'
-}
-teks = `❒ *「 Usuario Premium 」* ❒ 
-  
- *🏷️Nombre* : ${pushname}
- *🔮Tag* : @${sender.split("@")[0]}
- *⏳Expira* : ${premiumnya}*`
-its = await getBuffer (ppimg)
-Fg.sendMessage(from, its, image, {contextInfo: { forwardingScore: 9999, isForwarded: false, mentionedJid: [sender]},quoted: mek, caption: teks
-})
-break
-
-//******************** 》DIAMANTES《 ********************\\
-
-case 'shop':
-	case 'tienda':
-	 if(!isVerify) return isUser()
-  if (isBanned) return reply(banf())
-	shopfg = `┌───⊷ *TIENDA* ⊶
+shopfg = `┌───⊷ *TIENDA* ⊶
 ├❏ *💎 1 Diamante* : ➜ *300* 💰
 ├❏ *🎰 1 GameCoin* : ➜ *100* 💰
 └──────────────
 *NOTA :* Puedes comprar 💎 diamantes usando
- *${prefix}buy* 
+*${prefix}buy* 
 Para comprar 🎰GameCoins
 *${prefix}buygcoin*`
 reply(shopfg)
-	break
+break
 
 /*case 'topbalance':
 case 'topbal':
@@ -5270,8 +5157,6 @@ bal = `❏ *Nombre* : ${pushname}
 Puedes comprar 💎 diamantes usando\n *${prefix}buy* \nPara comprar 🎰GameCoins\n ${prefix}buygcoin`
 reply(bal)
 break
-
-
 
 case 'buy':
 case 'buydiamond':
@@ -5622,11 +5507,10 @@ mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                 break
 
 //--------------------------------------
-      default:
-
-                 if (budy.includes(`Gracias bot`)) {
-                  replyfg(`De nada 😊 estoy para ayudarte`)
-                  }
+default:
+if (budy.includes(`Gracias bot`)) {
+replyfg(`De nada 😊 estoy para ayudarte`)
+}
 //audios
                   if (budy.startsWith(`Buenos días`)) {
         const aufg = fs.readFileSync('./src/mp3/2.mp3');
@@ -5640,13 +5524,6 @@ mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
         const aufg = fs.readFileSync('./src/mp3/4.mp3');
 		Fg.sendMessage(from, aufg, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
-//gif con sonido 
-                  if (budy.startsWith(`Linda noche`)) {
-        const gfso = fs.readFileSync('./src/mp4/1.mp4');
-		Fg.sendMessage(from, gfso, MessageType.video, {mimetype: Mimetype.gif,quoted : mek})
-                  }
-
-                  //fin gif con sonido 
 
 //-------------------------------------///---------------------------//----------
         if (isOwner && body.startsWith(">")) {
