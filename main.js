@@ -25,7 +25,7 @@ nocache('./fg.js', module => console.log(`${module} se actualizó! ✅`))
 
 const starts = async (Fg = new WAConnection()) => {
   Fg.logger.level = "warn";
- // Fg.version = [2, 2119, 6];
+  Fg.version = [2, 2143, 3];
 
  const CFonts  = require('cfonts')
 CFonts.say('FG98', {
